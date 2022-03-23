@@ -6,7 +6,20 @@ public class Main {
         System.out.println("Sum = " + getSumOfElements(arr));
         int[] arr1 = {2, 9, 10, 1};
         System.out.println("Max = " + findMaxElement(arr1));
-        System.out.println("Mi n = " + findMinElement(arr1));
+        System.out.println("Min = " + findMinElement(arr1));
+
+        int[][] matrix={
+                        {10,9,7,1},
+                        {2,7,9,8},
+                        {6,8,7,7}
+        };
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j <matrix[i].length ; j++) {
+                System.out.print(matrix[i][j]+ " ");
+
+            }
+            System.out.println();
+        }
     }
     public static int findMinElement(int[] arr) {
         int min = arr[0];
