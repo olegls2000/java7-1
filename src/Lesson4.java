@@ -9,6 +9,10 @@ public class Lesson4 {
         int t = 9;
         t = mutation(t);
         System.out.println("After mutation: " + t);
+
+        int[] arrayTill30 = getArrayTill30();
+        int sum = getSumOfElements(arrayTill30);
+        System.out.println("Sum = " + sum);
     }
 
     public static int mutation(int a) {
@@ -19,10 +23,17 @@ public class Lesson4 {
     public static void printWord(int n, String suffix) {
         System.out.println(" pRINT FROM mETHOD " + n + suffix);
     }
-//  0  1  2  3  4  5   30
+
+    public static int getSumOfElements(int[] array) {
+        //TODO ... +=
+
+        return 0;
+    }
+
+    //  0  1  2  3  4  5   30
 //     1     3     5
     public static int[] getArrayTill30() {
-        int[] result = new int[16];
+        int[] result = new int[15];
         int counter = 0;
         int i = 0;
         while (counter <= 30) {
@@ -32,8 +43,12 @@ public class Lesson4 {
             }
             counter++;
         }
-        //TODO print array in reverse order
+        for (int j = result.length - 1; j >= 0; j--) {
+            System.out.print(result[j] + ", ");
+        }
+        System.out.println();
         return result;
     }
+
 
 }
