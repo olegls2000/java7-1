@@ -36,6 +36,8 @@ public class Main {
                 imax = i;
             }
         }
+        System.out.println("Max: array["+imax+"] = "+arr[imax]);
+        System.out.println("Min: array["+imin+"] = "+arr[imin]);
         int tmp=arr[imin];
         arr[imin]=arr[imax];
         arr[imax]=tmp;
