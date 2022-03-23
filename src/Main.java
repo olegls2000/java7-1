@@ -8,19 +8,40 @@ public class Main {
         System.out.println("Max = " + findMaxElement(arr1));
         System.out.println("Min = " + findMinElement(arr1));
 
-        int[][] matrix={
-                        {10,9,7,1},
-                        {2,7,9,8},
-                        {6,8,7,7}
+        int[][] matrix = {
+                {10, 9, 7, 1},
+                {2, 7, 9, 8},
+                {6, 8, 7, 7}
         };
         for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j <matrix[i].length ; j++) {
-                System.out.print(matrix[i][j]+ " ");
+            for (int j = 0; j < matrix[i].length; j++) {
+                System.out.print(matrix[i][j] + " ");
 
             }
             System.out.println();
         }
+        int[] arrayForSwap = {1, 2, 3, 4, 7, 9};
+        int[] arr2=swapMinAndMax(arrayForSwap);
+        printArray(arr2);
     }
+
+    public static int[] swapMinAndMax(int[] arr) {
+        int imin = 0;
+        int imax = 0;
+        for (int i = 1; i < arr.length; ++i) {
+                if (arr[i] < arr[imin]) {
+                    imin = i;
+            }
+            if (arr[i] > arr[imax]) {
+                imax = i;
+            }
+        }
+        int tmp=arr[imin];
+        arr[imin]=arr[imax];
+        arr[imax]=tmp;
+        return arr;
+    }
+
     public static int findMinElement(int[] arr) {
         int min = arr[0];
         for (int i = 1; i < arr.length; ++i) {
@@ -31,6 +52,7 @@ public class Main {
 
         return min;
     }
+
     public static int findMaxElement(int[] arr) {
         int max = arr[0];
         for (int i = 1; i < arr.length; ++i) {
