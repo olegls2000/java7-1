@@ -4,6 +4,29 @@ public class Main {
         printArray(arr);
         printInverseArray(arr);
         System.out.println("Sum = " + getSumOfElements(arr));
+        int[] arr1 = {2, 9, 10, 1};
+        System.out.println("Max = " + findMaxElement(arr1));
+        System.out.println("Mi n = " + findMinElement(arr1));
+    }
+    public static int findMinElement(int[] arr) {
+        int min = arr[0];
+        for (int i = 1; i < arr.length; ++i) {
+            if (arr[i] < min) {
+                min = arr[i];
+            }
+        }
+
+        return min;
+    }
+    public static int findMaxElement(int[] arr) {
+        int max = arr[0];
+        for (int i = 1; i < arr.length; ++i) {
+            if (arr[i] > max) {
+                max = arr[i];
+            }
+        }
+
+        return max;
     }
 
     public static int getSumOfElements(int[] arr) {
