@@ -5,7 +5,7 @@ public class Main {
         int[] array = getArrayTill30();
         int sum = getSumOfElements(array);
         System.out.println(sum);
-        int [] array1 = {3,5,9,8,66};
+        int[] array1 = {3, 5, 9, 8, 66};
         System.out.println(findMaxElement(array1));
         System.out.println(findMinElement(array1));
 
@@ -37,19 +37,20 @@ public class Main {
         }
         return sum;
     }
-    public static int findMaxElement(int[] array){
+
+    public static int findMaxElement(int[] array) {
         int max = array[0];
-        for (int i = 0; i < array.length; i++) {
-            if (array[i]>max)
-            max = array[i];
+        for (int i = 1; i < array.length; i++) {
+            if (array[i] > max)
+                max = array[i];
         }
         return max;
     }
 
-    public static int findMinElement(int[] array){
+    public static int findMinElement(int[] array) {
         int min = array[0];
-        for (int i = 0; i < array.length; i++) {
-            if (array[i]<min)
+        for (int i = 1; i < array.length; i++) {
+            if (array[i] < min)
                 min = array[i];
         }
         return min;
