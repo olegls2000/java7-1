@@ -1,11 +1,12 @@
 public class Lesson4 {
     public static void main(String[] args) {
-        getArrayTill30();
-        getArrayTill0();
+        int[] arrayTill30 = getArrayTill30();
+        int summ = getSummOfElems(arrayTill30);
+        System.out.println("sum =" + summ);
     }
 
     public static int[] getArrayTill30() {
-        int[] result = new int[16];
+        int[] result = new int[15];
         int counter = 0;
         int i = 0;
         while (counter <= 30) {
@@ -15,23 +16,19 @@ public class Lesson4 {
             }
             counter++;
         }
+        for (int j = result.length - 1; j >= 0; j--) {
+            System.out.print(result[j] + ",");
+        }
+        System.out.println();
         return result;
     }
 
-    public static int[] getArrayTill0() {
-        int[] result = new int[31];
-        int counter = 30;
-        int i = 30;
-        while (counter >= 0) {
-            if (counter % 2 == 1) {
-                result[i] = counter;
-                i--;
-            }
-            counter--;
+    public static int getSummOfElems(int[] array) {
+        int sum = 0;
+        for (int i = 0; i < array.length; i++) {
+            sum += array[i];
         }
-        return result;
-
-
+        return sum;
     }
 
 }
