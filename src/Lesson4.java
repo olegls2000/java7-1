@@ -3,7 +3,6 @@ public class Lesson4 {
 //Создайте метод, возвращающий массив из всех
 // нечетных чисел от 0 до 30, и который
 // выведит его на печать в прямом и обратном порядке.
-
         printWord(8, "!");
         printWord(9, ".");
         int t = 9;
@@ -11,8 +10,27 @@ public class Lesson4 {
         System.out.println("After mutation: " + t);
 
         int[] arrayTill30 = getArrayTill30();
-        int sum = getSumOfElements(arrayTill30);
+        int sum = getSumOfElements(getArrayTill30());
         System.out.println("Sum = " + sum);
+
+        int[] array = {3, 66, 9, 8, 4};
+        int max = findMaxElement(array);
+        int min = findMinElement(array);
+    }
+    public static int findMinElement(int[] array) {
+        //TODO ....
+        return 0;
+    }
+
+    public static int findMaxElement(int[] array) {
+        int max = array[0];
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] > max) {
+                max = array[i];
+            }
+        }
+        System.out.println("Max element is: " + max);
+        return max;
     }
 
     public static int mutation(int a) {
@@ -24,10 +42,13 @@ public class Lesson4 {
         System.out.println(" pRINT FROM mETHOD " + n + suffix);
     }
 
-    public static int getSumOfElements(int[] array) {
-        //TODO ... +=
 
-        return 0;
+    public static int getSumOfElements(int[] array) {
+        int sum = 0;
+        for (int i = 0; i < array.length; i++) {
+            sum += array[i];
+        }
+        return sum;
     }
 
     //  0  1  2  3  4  5   30
