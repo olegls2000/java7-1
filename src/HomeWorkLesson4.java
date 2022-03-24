@@ -4,6 +4,7 @@ public class HomeWorkLesson4 {
         double[][] array2D = {{1, 5, 98, 12}, {55, 3, 45, 77, 2, 17}};
         getAverage(arrayAverage);
         average2D(array2D);
+        minOf2DArray(array2D);
     }
 
     public static double getAverage(double[] array) {
@@ -26,5 +27,18 @@ public class HomeWorkLesson4 {
         double result = summ / (array[0].length + array[1].length);
         System.out.println("Average of 2D array is: " + result);
         return summ;
+    }
+
+    public static double minOf2DArray(double[][] array) {
+        double result = array[0][1];
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                if (array[i][j] < result) {
+                    result = array[i][j];
+                }
+            }
+        }
+        System.out.println("Minimum number of 2D array is: " + (int) result);
+        return result;
     }
 }
