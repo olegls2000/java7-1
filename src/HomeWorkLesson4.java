@@ -5,6 +5,7 @@ public class HomeWorkLesson4 {
         getAverage(arrayAverage);
         average2D(array2D);
         minOf2DArray(array2D);
+        maxOf2DArray(array2D);
     }
 
     public static double getAverage(double[] array) {
@@ -39,6 +40,19 @@ public class HomeWorkLesson4 {
             }
         }
         System.out.println("Minimum number of 2D array is: " + (int) result);
+        return result;
+    }
+
+    public static double maxOf2DArray(double[][] array) {
+        double result = array[0][1];
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                if (array[i][j] > result) {
+                    result = array[i][j];
+                }
+            }
+        }
+        System.out.println("Maximum number of 2D array is: " +  (int) result);
         return result;
     }
 }
