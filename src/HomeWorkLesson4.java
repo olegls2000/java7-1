@@ -1,12 +1,13 @@
 public class HomeWorkLesson4 {
     public static void main(String[] args) {
         int[] arrayAverage = {7, 9, 17, 4, 50};
-        int[][] array2D = {{10, 5, 98, 12}, {55, 3, 45, 77, 2, 17}};
+        int[][] array2D = {{1, 50, 9800, 12}, {55000, 300, 45, 70, 2000, 7}};
+        int[][] arraySwapped = swapMaxAndMin(array2D);
         getAverage(arrayAverage);
         average2D(array2D);
         minOf2DArray(array2D);
         maxOf2DArray(array2D);
-        swapMaxAndMin(array2D);
+        printOutArray(arraySwapped);
     }
 
     public static double getAverage(int[] array) {
@@ -57,40 +58,41 @@ public class HomeWorkLesson4 {
         return result;
     }
 
-   public static int[][] swapMaxAndMin(int[][] array) {
-        int iMax = getIndexOfMaxElement(array);
-        int iMin = getIndexOfMinElement(array);
-        int[] temp = array[iMax];
-        array[iMax] = array[iMin];
-        array[iMin] = temp;
+    public static int[][] swapMaxAndMin(int[][] array) {
+        int iMax = 0;
+        int jMax = 0;
+        int iMin = 0;
+        int jMin = 0;
+        for (int i = 0; i < array.length; i++)
+            for (int j = 0; j < array[i].length; j++) {
+                if (array[i][j] > array[iMax][jMax]) {
+                    iMax = i;
+                    jMax = j;
+                }
+            }
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                if (array[i][j] < array[iMin][jMin]) {
+                    iMin = i;
+                    jMin = j;
+                }
+            }
+        }
+        int tmp = array[iMax][jMax];
+        array[iMax][jMax] = array[iMin][jMin];
+        array[iMin][jMin] = tmp;
+        System.out.println(array[iMax][jMax] + " " + array[iMin][jMin]);
         return array;
     }
 
-    public static int getIndexOfMaxElement(int[][] array) {
-        int iMax = 0;
+    public static void printOutArray(int[][] array) {
+
         for (int i = 0; i < array.length; i++) {
+            System.out.print("[");
             for (int j = 0; j < array[i].length; j++) {
-                if (array[i][j] > array[iMax]) {
-                    iMax = array[i][j];
-                }
+                System.out.print(array[i][j] + ", ");
             }
+            System.out.print("] ");
         }
-        System.out.println("Max element index: " + iMax + ", value = " + array[iMax]);
-        return iMax;
     }
-
-    public static int getIndexOfMinElement(int[][] array) {
-        int iMin = array[0][1];
-        for (int i = 0; i < array.length; i++) {
-            for (int j = 0; j < array[i].length; j++) {
-                if (array[i][j] < array[iMin]) {
-                    iMin = array[i][j];
-                }
-            }
-        }
-         System.out.println("Min element index: " + iMin + ", value = " + array[iMin]);
-        return iMin;
-    }
-
-
 }
