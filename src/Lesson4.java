@@ -4,8 +4,10 @@ public class Lesson4 {
     int sum = getSumOfElements(arrayTill30);
         System.out.println(sum + ",");
         int[] array = {3,6,9,8,4};
-        int[] max = findMaxElement(array);
-        int[] min = findMinElement(array);
+        //int[] max =
+                findMaxElement(array);
+        //int[] min =
+                findMinElement(array);
         int[][] matrix = {
                           {10, 11, 12, 13},
                           {20, 21, 22},
