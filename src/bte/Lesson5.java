@@ -1,3 +1,9 @@
+package bte;
+
+import bte.model.Circle;
+import bte.model.Human;
+import bte.util.CircleUtils;
+
 public class Lesson5 {
     public static void main(String[] args) {
         int i = 7;

@@ -1,3 +1,5 @@
+package bte.model;
+
 // 40....100 -> 4 obj find with max area
 //Add to the class Circle method: double getLength(){...}
 // that calculates circles length. Generate 30 circles with radius

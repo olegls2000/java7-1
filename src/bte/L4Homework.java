@@ -1,3 +1,5 @@
+package bte;
+
 public class L4Homework {
     public static void main(String[] args) {
         //TODO: Create method witch finds average in 1D array;

@@ -1,3 +1,5 @@
+package bte;
+
 public class Rock {
     //Демонстрация простого конструктора
     Rock(int i, String str) {

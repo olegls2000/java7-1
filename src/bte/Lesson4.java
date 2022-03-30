@@ -1,3 +1,5 @@
+package bte;
+
 public class Lesson4 {
     public static void main(String[] args) {
         int[] arrayTill30 = getArrayTill30();

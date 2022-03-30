@@ -1,3 +1,7 @@
+package bte.util;
+
+import bte.model.Circle;
+
 public class CircleUtils {
     public static Circle[] getCircles(int count) {
         Circle[] result = new Circle[count];
