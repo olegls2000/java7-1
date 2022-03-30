@@ -4,11 +4,23 @@
 // from  range (2 .. 600) and find the circle with minimal length.
 public class Circle {
     public int radius;
-    public Circle(int radius){this.radius = radius;}
-    public double getArea(){
+
+    {
+        System.out.println("Instance initialisation block");
+    }
+
+    public Circle(int radius) {
+        System.out.println("Constructor initialisation block");
+        this.radius = radius;
+    }
+
+    public double getArea() {
         return Math.PI * Math.pow(radius, 2);
 
 
-
     }
+static{
+    System.out.println("Static initialisation block");
+}
+
 }
