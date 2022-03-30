@@ -35,7 +35,7 @@ public class Lesson5 {
         Human human4 = new Human(15, "Gena");
 
 
-        Circle[] circles = getCircles(100);
+        Circle[] circles = getCircles(30);
         Circle maxAreaCircle = getCircleWithMaxRadius(circles);
         System.out.println("Circle with biggest area: " +
                 maxAreaCircle.getArea() +
