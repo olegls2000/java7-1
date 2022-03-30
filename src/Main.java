@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
         int[] arr = getArrayTill30(30);
@@ -37,6 +39,13 @@ public class Main {
         printMatrix(matrix1, "Before MinElFirst(s) modification:");
         putMinFirst2Dsimple(matrix1);
         printMatrix(matrix1, "After MinElFirst(s) modification:");
+
+        Circle[] circles = getCircles(10);
+        Circle circle = getCircleWithMaxArea(circles);
+        System.out.println("The circle with radius " + circle.radius +" and maximum area : "+circle.getArea());
+        Circle[] circlesLens = getCircles(30,2,600);
+        Circle circleLen = getCircleWithMinLength(circlesLens);
+        System.out.println("The circle with radius " + circleLen.radius +" and minimum length : "+circleLen.getLength());
     }
 
     public static void swapMinAndMax(int[] arr) {
@@ -288,6 +297,46 @@ public class Main {
             matrix[i][0] = matrix[i][imin];
             matrix[i][imin] = temp;
         }
+    }
+
+    public static int getRandomValue(int a, int b) {
+        return (int) (Math.random() * (b - a)) + a;
+    }
+
+    public static Circle[] getCircles(int count) {
+        Circle[] circles = new Circle[count];
+        for (int i = 0; i < circles.length; i++) {
+            circles[i] = new Circle(getRandomValue(40, 80));
+        }
+        return circles;
+    }
+    public static Circle[] getCircles(int count, int from, int to) {
+        Circle[] circles = new Circle[count];
+        for (int i = 0; i < circles.length; i++) {
+            circles[i] = new Circle(getRandomValue(from, to));
+        }
+        return circles;
+    }
+    public static Circle getCircleWithMaxArea(Circle[] circles) {
+        Circle crlMax = circles[0];
+        for (Circle c : circles) {
+            if (c.getArea() > crlMax.getArea()) {
+                crlMax = c;
+            }
+
+        }
+        return crlMax;
+    }
+
+    public static Circle getCircleWithMinLength(Circle[] circles) {
+        Circle crlMinLen = circles[0];
+        for (Circle c : circles) {
+            if (c.getLength() < crlMinLen.getLength()) {
+                crlMinLen = c;
+            }
+
+        }
+        return crlMinLen;
     }
 }
 
