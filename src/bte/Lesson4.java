@@ -1,3 +1,5 @@
+package bte;
+
 public class Lesson4 {
     public static void main(String[] args) {
 //Создайте метод, возвращающий массив из всех
@@ -113,6 +115,7 @@ public class Lesson4 {
                 result[i] = counter;
                 i++;
             }
+
             counter++;
         }
         for (int j = result.length - 1; j >= 0; j--) {
