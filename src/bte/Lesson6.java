@@ -1,7 +1,13 @@
 package bte;
-import bte.model.Circle;
+
 import bte.model.Point;
 import bte.model.Triangle;
+import bte.util.WeekDay;
+
+import java.util.Scanner;
+
+import static bte.util.NumberUtils.getRandom;
+import static bte.util.Print.print;
 
 public class Lesson6 {
     public static void main(String[] args) {
@@ -17,6 +23,7 @@ public class Lesson6 {
         System.out.println("Perimeter: " + perimeter);
 
 
+
         final int ARRAY_INDEX = 5;
 
         final Point POINT = new Point(4, 4);
@@ -28,7 +35,22 @@ public class Lesson6 {
         System.out.println(arrayIndex);
         mutatedObject(POINT);
         System.out.println(POINT);
+
+        WeekDay friday = WeekDay.FRIDAY;
+        boolean isHoliday = friday.isHoliday;
+        String dayName = friday.name;
+        int order = friday.ordinal();
+        System.out.println(dayName + order);
+        WeekDay[] weekDays = WeekDay.values();
+        WeekDay randomDay = weekDays[getRandom(0, weekDays.length)];
+        System.out.println(randomDay.name);
+
+        Scanner scanner = new Scanner(System.in);
+        print("Please input your freestyle line ");
+        String input = scanner.nextLine();
+        print("Your input: " + input);
     }
+
 
     public static void mutaterPrimitive(int a) {
         a = 8;

@@ -1,5 +1,7 @@
 package bte.model;
 
+import static bte.util.CircleUtils.PI;
+
 // 40....100 -> 4 obj find with max area
 //Add to the class Circle method: double getLength(){...}
 // that calculates circles length. Generate 30 circles with radius
@@ -7,22 +9,22 @@ package bte.model;
 public class Circle {
     public int radius;
 
-    {
-        System.out.println("Instance initialisation block");
-    }
+//    {
+//        System.out.println("Instance initialisation block");
+//    }
 
     public Circle(int radius) {
-        System.out.println("Constructor initialisation block");
+        //System.out.println("Constructor initialisation block");
         this.radius = radius;
     }
 
     public double getArea() {
-        return Math.PI * Math.pow(radius, 2);
+        return PI * Math.pow(radius, 2);
 
 
     }
-static{
-    System.out.println("Static initialisation block");
-}
+//static{
+//    System.out.println("Static initialisation block");
+//}
 
 }

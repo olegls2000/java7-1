@@ -3,6 +3,8 @@ package bte.util;
 import bte.model.Circle;
 
 public class CircleUtils {
+    public static final float PI = 3.14f;
+
     public static Circle[] getCircles(int count) {
         Circle[] result = new Circle[count];
         for (int i = 0; i < count; i++) {

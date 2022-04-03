@@ -1,6 +1,7 @@
 package bte.model;
 
-import bte.util.PointUtils;
+import static bte.util.PointUtils.getDistance;
+
 
 public class Triangle {
     public final static int TRIANGLE_CONSTANT = 5;
@@ -16,8 +17,9 @@ public class Triangle {
     }
 
     public double getPerimeter() {
-        return PointUtils.getDistance(a, b)
-                + PointUtils.getDistance(b, c)
-                + PointUtils.getDistance(c, a);
+        return getDistance(a, b)
+                + getDistance(b, c)
+                + getDistance(c, a);
+
     }
 }
