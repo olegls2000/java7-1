@@ -39,7 +39,7 @@ public class Lesson5 {
         Circle maxAreaCircle = CircleUtils.getCirceWithMaxArea(circles);
         System.out.println("bte.Circle with the biggest area: "
                 + maxAreaCircle.getArea() + " with radius: "
-                + maxAreaCircle.radius);
+                + maxAreaCircle.getRadius());
     }
 
 

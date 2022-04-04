@@ -3,6 +3,8 @@ package bte.util;
 import bte.model.Circle;
 import bte.model.Point;
 
+import static bte.util.NumberUtils.getRandom;
+
 public class CircleUtils {
 
     public static final float PI = 3.14f;
@@ -11,8 +13,8 @@ public class CircleUtils {
         Circle closest = circles[0];
         final Point zero = new Point(0, 0);
         for (Circle circle : circles) {
-            final double distance = PointUtils.getDistance(circle.center, zero);
-            final double minDistance = PointUtils.getDistance(closest.center, zero);
+            final double distance = PointUtils.getDistance(circle.getCenter(), zero);
+            final double minDistance = PointUtils.getDistance(closest.getCenter(), zero);
             if (distance < minDistance) {
                 closest = circle;
             }
@@ -23,7 +25,9 @@ public class CircleUtils {
     public static Circle[] getCircles(int count) {
         Circle[] result = new Circle[count];
         for (int i = 0; i < count; i++) {
-            result[i] = new Circle(NumberUtils.getRandom(3, 70));
+            Point center = new Point(getRandom(-100, 100),
+                    getRandom(-100, 100));
+            result[i] = new Circle(getRandom(3, 70), center);
         }
         return result;
     }
