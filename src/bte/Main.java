@@ -1,4 +1,10 @@
-import java.util.Arrays;
+package bte;
+
+import bte.model.Circle;
+import bte.model.Point;
+import bte.util.CircleUtils;
+
+import static bte.util.CircleUtils.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -41,11 +47,20 @@ public class Main {
         printMatrix(matrix1, "After MinElFirst(s) modification:");
 
         Circle[] circles = getCircles(10);
+        circles[0].move(3,3);
+        circles[0].move(1,1);
         Circle circle = getCircleWithMaxArea(circles);
-        System.out.println("The circle with radius " + circle.radius +" and maximum area : "+circle.getArea());
-        Circle[] circlesLens = getCircles(30,2,600);
+        System.out.println("The circle with radius " + circle.radius + " and maximum area : " + circle.getArea());
+        Circle[] circlesLens = getCircles(5, 2, 600);
+
         Circle circleLen = getCircleWithMinLength(circlesLens);
-        System.out.println("The circle with radius " + circleLen.radius +" and minimum length : "+circleLen.getLength());
+        System.out.println("The circle with radius " + circleLen.radius + " and minimum length : " + circleLen.getLength());
+        double distance=getDistanceBetweenCenters(new Circle(3, new Point(1,1)), new Circle(3, new Point(2,2)));
+        Circle circleNearest = CircleUtils.closerToCenter(circlesLens);
+        System.out.println("The closest to the center circle with radius " + circleNearest.radius
+                + " and circle center (" + circleNearest.center.x + "," + circleNearest.center.y + ")");
+
+
     }
 
     public static void swapMinAndMax(int[] arr) {
@@ -299,45 +314,8 @@ public class Main {
         }
     }
 
-    public static int getRandomValue(int a, int b) {
-        return (int) (Math.random() * (b - a)) + a;
-    }
 
-    public static Circle[] getCircles(int count) {
-        Circle[] circles = new Circle[count];
-        for (int i = 0; i < circles.length; i++) {
-            circles[i] = new Circle(getRandomValue(40, 80));
-        }
-        return circles;
-    }
-    public static Circle[] getCircles(int count, int from, int to) {
-        Circle[] circles = new Circle[count];
-        for (int i = 0; i < circles.length; i++) {
-            circles[i] = new Circle(getRandomValue(from, to));
-        }
-        return circles;
-    }
-    public static Circle getCircleWithMaxArea(Circle[] circles) {
-        Circle crlMax = circles[0];
-        for (Circle c : circles) {
-            if (c.getArea() > crlMax.getArea()) {
-                crlMax = c;
-            }
 
-        }
-        return crlMax;
-    }
-
-    public static Circle getCircleWithMinLength(Circle[] circles) {
-        Circle crlMinLen = circles[0];
-        for (Circle c : circles) {
-            if (c.getLength() < crlMinLen.getLength()) {
-                crlMinLen = c;
-            }
-
-        }
-        return crlMinLen;
-    }
 }
 
 
