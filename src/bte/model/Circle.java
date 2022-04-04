@@ -8,6 +8,13 @@ import static java.lang.System.out;
 // "bte.Circle with the biggest area: XXX with radius: XXX"
 public class Circle {
     public int radius;
+    public Point center;
+
+    public void move(int xDelta, int yDelta) {
+        this.center.x = this.center.x + xDelta;
+        this.center.y = this.center.y + yDelta;
+    }
+
 
     {
         out.println("Instance initialisation block");
