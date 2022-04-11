@@ -1,6 +1,6 @@
 package bte;
 
-import bte.Service.AutoSalon;
+import bte.service.AutoSalon;
 import bte.model.Car;
 import bte.model.Point;
 import bte.model.SimpleTriangle;
@@ -18,7 +18,7 @@ public class Lesson7 {
         autoSalon.buyCar(car2);
         autoSalon.report();
 
-        autoSalon.sellCar(0, car1);
+        autoSalon.sellCar(0);
         autoSalon.report();
         Car car3 = new Car();
         autoSalon.buyCar(car3);

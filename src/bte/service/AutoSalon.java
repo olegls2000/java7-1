@@ -1,4 +1,4 @@
-package bte.Service;
+package bte.service;
 
 import bte.model.Car;
 
@@ -61,10 +61,10 @@ public class AutoSalon {
         return freePlace;
     }
 
-    public void sellCar(int parkingPlace, Car carToSell) {
-        parking[parkingPlace] = null;
-        final var carPrice = carToSell.getPrice();
+    public void sellCar(int parkingPlace) {
+        final var carPrice = parking[parkingPlace].getPrice();
         balance += carPrice*INTEREST;
+        parking[parkingPlace] = null;
     }
 
     public void report() {
