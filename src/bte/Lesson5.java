@@ -1,4 +1,8 @@
-import org.w3c.dom.ls.LSOutput;
+package bte;
+
+import bte.model.Circle;
+import bte.model.Human;
+import bte.utils.CircleUtils;
 
 public class Lesson5 {
     public static void main(String[] args) {
@@ -37,34 +41,10 @@ public class Lesson5 {
 
         Human human4 = new Human(38, "Fill");
 
-        Circle[] circles = getCircle(100);
-        Circle maxArea = getCircleWithMaxArea(circles);
-        System.out.println("Circle with the biggest area: "
+        Circle[] circles = CircleUtils.getCircle(100);
+        Circle maxArea = CircleUtils.getCircleWithMaxArea(circles);
+        System.out.println("bte.Circle with the biggest area: "
                 + maxArea.getArea() + " with radius: "
-                + maxArea.radius);
-
+                + maxArea.getRadius());
     }
-
-    public static Circle getCircleWithMaxArea(Circle[] circles) {
-        Circle result = circles[0];
-        for (Circle circle:circles){
-            if(circle.getArea()> result.getArea()){
-                result = circle;
-            }
-        }
-        return result;
-    }
-
-    public static Circle[] getCircle(int count) {
-        Circle[] result = new Circle[count];
-        for (int i = 0; i < count; i++) {
-            result[i] = new Circle(getRandom(40, 100));
-        }
-        return result;
-    }
-
-    public static int getRandom(int a, int b) {
-        return (int) (Math.random() * (b - a)) + a;
-    }
-
 }

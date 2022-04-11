@@ -1,3 +1,5 @@
+package bte.model;
+
 public class Human {
     public int age;
     public String name;
@@ -10,7 +12,7 @@ public class Human {
     }
 
 
-    //   public Human(){
+    //   public bte.model.Human(){
     //        System.out.println("Default constructor in use ...");
     //        this.age = (int) (Math.random() * (65 - 18)) + 18;
     //  }

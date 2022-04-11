@@ -1,8 +1,10 @@
+package bte;
+
 public class HomeWorkLesson4 {
     public static void main(String[] args) {
         int[] arrayAverage = {7, 9, 17, 4, 50};
-        int[][] array2D = {{10, 50, 98000, 12}, {55000, 300, 45, 70, 2000, 7}};
-        int[][] array2Dref = {{50,10,56,60}, {10,45,5,99}};
+        int[][] array2D = {{100, 50, 98000, 12}, {55000, 300, 45, 70, 2000, 7}};
+        int[][] array2Dref = {{50, 10, 56, 60}, {10, 45, 5, 99}};
         int[][] reformat2D = reformatArray(array2Dref);
         int[][] arraySwapped = swapMaxAndMin(array2D);
         getAverage(arrayAverage);
@@ -25,18 +27,19 @@ public class HomeWorkLesson4 {
 
     public static double average2D(int[][] array) {
         double summ = 0;
+        int count = 0;
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[i].length; j++) {
                 summ += array[i][j];
+                count++;
             }
         }
-        double result = summ / (array[0].length + array[1].length);
-        System.out.println("Average of 2D array is: " + result);
-        return summ;
+        System.out.println("Average of 2D array is: " +  summ / count);
+        return summ / count;
     }
 
     public static int minOf2DArray(int[][] array) {
-        int result = array[0][1];
+        int result = array[0][0];
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[i].length; j++) {
                 if (array[i][j] < result) {
@@ -49,7 +52,7 @@ public class HomeWorkLesson4 {
     }
 
     public static int maxOf2DArray(int[][] array) {
-        int result = array[0][1];
+        int result = array[0][0];
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[i].length; j++) {
                 if (array[i][j] > result) {
@@ -102,7 +105,6 @@ public class HomeWorkLesson4 {
         int tmp = array[iMin][jMin];
         array[iMin][jMin] = array[0][0];
         array[0][0] = tmp;
-        ;
         return array;
     }
 
@@ -113,7 +115,7 @@ public class HomeWorkLesson4 {
             for (int j = 0; j < array[i].length; j++) {
                 System.out.print(array[i][j] + ", ");
             }
-            System.out.print("] ");
+            System.out.println("] ");
         }
         System.out.println("");
     }
