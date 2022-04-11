@@ -1,6 +1,10 @@
 package bte;
 
 import bte.model.*;
+import bte.model.simple.AbstractShape;
+import bte.model.simple.SimpleCircle;
+import bte.model.simple.SimpleRectangle;
+import bte.model.simple.SimpleTriangle;
 import bte.service.Company;
 import bte.service.CompanyPoly;
 
@@ -51,6 +55,28 @@ public class Lesson8 {
 /*        AbstractEmployee abstractEmployee =
                 new AbstractEmployee(30, "Jo", 30_000);*/
 
+        SimpleTriangle triangle1 = new SimpleTriangle(44, 44, 44);
+        SimpleTriangle triangle2 = new SimpleTriangle(3, 5, 4);
+        //SimpleTriangle[] triangles = {triangle1, triangle2};
+        SimpleCircle circle1 = new SimpleCircle(5);
+        SimpleCircle circle2 = new SimpleCircle(6);
+        //SimpleCircle[] circles = {circle1, circle2};
+        SimpleRectangle rectangle1 = new SimpleRectangle(4, 5);
+        SimpleRectangle rectangle2 = new SimpleRectangle(6, 3);
+        //SimpleRectangle[] rectangles = {rectangle1, rectangle2};
+
+        AbstractShape[] shapes = {triangle1, triangle2, circle1, circle2, rectangle1, rectangle2};
+        AbstractShape maxPerimShape = shapes[0];
+        for (AbstractShape shape : shapes) {
+            if (shape.getPerimeter() > maxPerimShape.getPerimeter()) {
+                maxPerimShape = shape;
+            }
+        }
+        String shapeString = maxPerimShape.toString();
+
+        int i = 9;
+
+        System.out.println("Max perimeter shape is: "+ shapeString);
 
     }
 }
