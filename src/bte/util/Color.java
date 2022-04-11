@@ -3,11 +3,7 @@ package bte.util;
 public enum Color {
     WHITE("White"),
     BLACK("Black"),
-    BLUE("Blue"),
-    GREEN("Green"),
-    PURPLE("Purple"),
-    RED("Red"),
-    YELLOW("Yellow");
+    RED("Red");
 
     public String name;
 

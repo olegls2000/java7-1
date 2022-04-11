@@ -1,4 +1,4 @@
-package bte.util;
+package bte.model;
 
 public enum CarModel {
     BMW("BMW"),
