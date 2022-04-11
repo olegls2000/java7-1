@@ -8,9 +8,7 @@ public class Administrator extends AbstractEmployee {
     }
 
     public Administrator(int age, String name, int salary, String department) {
-        this.age = age;
-        this.name = name;
-        this.salary = salary;
+        super(age, name, salary);
         this.department = department;
     }
 }

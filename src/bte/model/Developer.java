@@ -9,9 +9,7 @@ public class Developer extends AbstractEmployee {
                      String name,
                      int salary,
                      String programmingLanguage) {
-        this.age = age;
-        this.name = name;
-        this.salary = salary;
+        super(age, name, salary);
         this.programmingLanguage = programmingLanguage;
     }
     public String getProgrammingLanguage() {

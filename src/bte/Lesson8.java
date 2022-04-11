@@ -1,9 +1,6 @@
 package bte;
 
-import bte.model.AbstractEmployee;
-import bte.model.Accounter;
-import bte.model.Administrator;
-import bte.model.Developer;
+import bte.model.*;
 import bte.service.Company;
 import bte.service.CompanyPoly;
 
@@ -38,10 +35,22 @@ public class Lesson8 {
         //developer.getProgrammingLanguage();
         developer.getSalary();
         AbstractEmployee accounter = new Accounter(30, "Mila", 33_000, "DevOps");
-        AbstractEmployee administrator = new Administrator(30, "Mike", 15_000, "Logistic");
+        Administrator administrator = new Administrator(30, "Mike", 15_000, "Logistic");
+        administrator.getDepartment(); // From Administrator
+        administrator.getSalary();// From AbstractEmployee
+        administrator.hashCode();
+        Object randomObject = new Developer(30, "Jo", 30_000, "Python");
+        Object randomObject1 = new Triangle(null, null, null);
+        randomObject.hashCode();
+
         AbstractEmployee[] employees = {developer, accounter, administrator};
 
         CompanyPoly meta = new CompanyPoly(employees);
         meta.printNameWithBiggestSalary();
+
+/*        AbstractEmployee abstractEmployee =
+                new AbstractEmployee(30, "Jo", 30_000);*/
+
+
     }
 }

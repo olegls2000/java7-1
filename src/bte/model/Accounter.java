@@ -8,9 +8,7 @@ public class Accounter extends AbstractEmployee {
     }
 
     public Accounter(int age, String name, int salary, String team) {
-        this.age = age;
-        this.name = name;
-        this.salary = salary;
+        super(age, name, salary);
         this.team = team;
     }
 }

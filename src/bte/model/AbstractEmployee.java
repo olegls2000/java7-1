@@ -3,9 +3,15 @@ package bte.model;
 //Super Class
 //Parent Class
 public abstract class AbstractEmployee  {
-    protected int age;
-    protected String name;
-    protected int salary;
+    private int age;
+    private String name;
+    private int salary;
+
+    public AbstractEmployee(int age, String name, int salary) {
+        this.age = age;
+        this.name = name;
+        this.salary = salary;
+    }
 
     public int getAge() {
         return age;
