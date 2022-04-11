@@ -1,6 +1,6 @@
 package bte;
 
-import bte.model.SimpleTriangle;
+import Simple.SimpleTriangle;
 
 public class Lesson8 {
     public static void main(String[] args) {
@@ -9,7 +9,7 @@ public class Lesson8 {
         SimpleTriangle triangle2 = new SimpleTriangle(3,5,4);
         SimpleTriangle[] triangles = {triangle1, triangle2};
 
-        CircleTwo
+
 
     }
 
