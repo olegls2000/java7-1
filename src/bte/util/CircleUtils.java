@@ -20,7 +20,7 @@ public class CircleUtils {
     }
 
     public static Circle closerToCenter(Circle[] circles) {
-        Point coordinateCenter = new Point(0, 0);
+        final Point coordinateCenter = new Point(0, 0);
         int iMin = 0;
         double min = 0, current;
         for (int i = 0; i < circles.length; i++) {
