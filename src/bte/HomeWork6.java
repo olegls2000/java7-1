@@ -1,0 +1,11 @@
+package bte;
+
+import bte.*;
+import java.util.Scanner;
+
+public class HomeWork6 {
+    public static void main(String[] args) {
+
+    }
+
+}
