@@ -19,15 +19,19 @@ public class Container {
                 shapeMaxArea = shape;
             }
         }
-        String shapeType = "";
-        if (shapeMaxArea instanceof SimpleCircle) {
-            shapeType = "Circle";
-        } else if (shapeMaxArea instanceof SimpleTriangle) {
-            shapeType = "Triangle";
-        } else if (shapeMaxArea instanceof SimpleRectangle) {
-            shapeType = "Rectangle";
+        System.out.println("Biggest area have shape: " + getShapeName(shapeMaxArea) + " " + shapeMaxArea.getArea());
+    }
+
+    private String getShapeName(AbstractShape shape) {
+        String result = "";
+        if (shape instanceof SimpleCircle) {
+            result = "Circle";
+        } else if (shape instanceof SimpleTriangle) {
+            result = "Triangle";
+        } else if (shape instanceof SimpleRectangle) {
+            result = "Rectangle";
         }
-        System.out.println("Biggest area have shape: " + shapeType + " " + shapeMaxArea.getArea());
+        return result;
     }
 
     public void printShapeWithMinArea() {
@@ -37,15 +41,7 @@ public class Container {
                 shapeMaxArea = shape;
             }
         }
-        String shapeType = "";
-        if (shapeMaxArea instanceof SimpleCircle) {
-            shapeType = "Circle";
-        } else if (shapeMaxArea instanceof SimpleTriangle) {
-            shapeType = "Triangle";
-        } else if (shapeMaxArea instanceof SimpleRectangle) {
-            shapeType = "Rectangle";
-        }
-        System.out.println("Smallest area have shape: " + shapeType + " " + shapeMaxArea.getArea());
+        System.out.println("Smallest area have shape: " + getShapeName(shapeMaxArea) + " " + shapeMaxArea.getArea());
     }
 
     public void printShapeWithMaxPerimeter() {
@@ -55,15 +51,7 @@ public class Container {
                 shapeMaxArea = shape;
             }
         }
-        String shapeType = "";
-        if (shapeMaxArea instanceof SimpleCircle) {
-            shapeType = "Circle";
-        } else if (shapeMaxArea instanceof SimpleTriangle) {
-            shapeType = "Triangle";
-        } else if (shapeMaxArea instanceof SimpleRectangle) {
-            shapeType = "Rectangle";
-        }
-        System.out.println("Biggest perimeter have shape: " + shapeType + " " + shapeMaxArea.getPerimeter());
+        System.out.println("Biggest perimeter have shape: " + getShapeName(shapeMaxArea) + " " + shapeMaxArea.getPerimeter());
     }
 
     public void printShapeWithMinPerimeter() {
@@ -73,15 +61,7 @@ public class Container {
                 shapeMaxArea = shape;
             }
         }
-        String shapeType = "";
-        if (shapeMaxArea instanceof SimpleCircle) {
-            shapeType = "Circle";
-        } else if (shapeMaxArea instanceof SimpleTriangle) {
-            shapeType = "Triangle";
-        } else if (shapeMaxArea instanceof SimpleRectangle) {
-            shapeType = "Rectangle";
-        }
-        System.out.println("Smallest perimeter have shape: " + shapeType + " " + shapeMaxArea.getPerimeter());
+        System.out.println("Smallest perimeter have shape: " + getShapeName(shapeMaxArea) + " " + shapeMaxArea.getPerimeter());
     }
 
     public AbstractShape[] getShapes() {
