@@ -15,4 +15,9 @@ public class Developer extends AbstractEmployee {
     public String getProgrammingLanguage() {
         return programmingLanguage;
     }
+
+    @Override
+    public void salaryReview() {
+        //TODO...
+    }
 }

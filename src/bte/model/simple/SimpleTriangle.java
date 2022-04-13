@@ -1,6 +1,6 @@
 package bte.model.simple;
 
-public class SimpleTriangle extends AbstractShape {
+public class SimpleTriangle implements WithPerimeter {
     private int a;
     private int b;
     private int c;
@@ -10,6 +10,19 @@ public class SimpleTriangle extends AbstractShape {
         this.a = a;
         this.b = b;
         this.c = c;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) {
+            return true;
+        }
+        if (object instanceof SimpleTriangle) {
+            SimpleTriangle simpleTriangle = (SimpleTriangle) object;
+            return simpleTriangle.a == this.a && simpleTriangle.c == this.c &&
+                    simpleTriangle.b == this.b;
+        }
+        return false;
     }
 
     @Override

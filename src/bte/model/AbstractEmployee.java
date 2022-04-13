@@ -7,6 +7,8 @@ public abstract class AbstractEmployee  {
     private String name;
     private int salary;
 
+    public abstract void salaryReview();
+
     public AbstractEmployee(int age, String name, int salary) {
         this.age = age;
         this.name = name;

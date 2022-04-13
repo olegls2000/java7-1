@@ -11,4 +11,9 @@ public class Administrator extends AbstractEmployee {
         super(age, name, salary);
         this.department = department;
     }
+
+    @Override
+    public void salaryReview() {
+        //TODO...
+    }
 }

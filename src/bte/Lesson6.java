@@ -37,13 +37,13 @@ public class Lesson6 {
         System.out.println(POINT);
 
         WeekDay friday = WeekDay.FRIDAY;
-        boolean isHoliday = friday.isHoliday;
-        String dayName = friday.name;
+        boolean isHoliday = friday.isHoliday();
+        String dayName = friday.getName();
         int order = friday.ordinal();
         System.out.println(dayName + order);
         WeekDay[] weekDays = WeekDay.values();
         WeekDay randomDay = weekDays[getRandom(0, weekDays.length)];
-        System.out.println(randomDay.name);
+        System.out.println(randomDay.getName());
 
         Scanner scanner = new Scanner(System.in);
         print("Please input your freestyle line ");
