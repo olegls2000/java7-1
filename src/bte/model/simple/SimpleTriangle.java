@@ -1,6 +1,6 @@
-package bte.simple;
+package bte.model.simple;
 
-public class SimpleTriangle {
+public class SimpleTriangle extends AbstractShape {
     private int a;
     private int b;
     private int c;
@@ -10,7 +10,16 @@ public class SimpleTriangle {
         this.a = a;
         this.b = b;
         this.c = c;
+    }
 
+    @Override
+    public double getPerimeter() {
+        return a + b + c;
+    }
+
+    @Override
+    public String toString() {
+        return "Simple Triangle with sides: " + this.a + ", " + this.b + ", " + this.c;
     }
 
     public int getA() {
@@ -18,26 +27,18 @@ public class SimpleTriangle {
     }
 
     public void setA(int a) {
-        this.a = a;
         checkTriangle(a, this.b, this.c);
-    }
-
-    public int getB() {
-        return b;
+        this.a = a;
     }
 
     public void setB(int b) {
-        this.b = b;
         checkTriangle(this.a, b, this.c);
-    }
-
-    public int getC() {
-        return c;
+        this.b = b;
     }
 
     public void setC(int c) {
-        this.c = c;
         checkTriangle(this.a, this.b, c);
+        this.c = c;
     }
 
     public int calculatePerimeter() {
@@ -46,10 +47,9 @@ public class SimpleTriangle {
 
     private void checkTriangle(int a, int b, int c) {
         boolean impossible = a + b <= c || b + c <= a || a + c <= b;
-        if (!impossible) {
-            throw new RuntimeException("Triangle with combination of sides: " +
-                    a + "," + b + "," + c +
-                    "is impossible");
+        if (impossible) {
+            throw new RuntimeException("Triangle with combination of sides: " + a
+                    + "," + b + "," + c + " is impossible");
         }
     }
 }

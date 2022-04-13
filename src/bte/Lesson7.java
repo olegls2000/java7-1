@@ -1,8 +1,8 @@
 package bte;
 
 import bte.model.Car;
-import bte.simple.SimpleTriangle;
-import bte.servise.AutoSalon;
+import bte.model.simple.SimpleTriangle;
+import bte.service.AutoSalon;
 
 import static bte.util.Print.print;
 

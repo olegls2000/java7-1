@@ -1,37 +1,31 @@
-package bte.servise;
+package bte.service;
 
 import bte.model.Car;
 
-import static bte.util.Print.print;
-
 public class AutoSalon {
-    public static final double INTREST = 1.2;
+    private static final double INTEREST = 1.2;
     private Car[] parking;
     private int balance;
 
-
     public AutoSalon() {
-        int parkingCapacity = getFromConsoleParkingCapacity();
+        int parkingCapacity = getFromConsoleInitialCapacity();
         parking = new Car[parkingCapacity];
         int initialBalance = getFromConsoleInitialBalance();
         balance = initialBalance;
     }
 
     public void buyCar(Car carToBuy) {
-        //TODO...
-        final var freePlace = getFreeParkingSlot();
+        final int freePlace = getFreeParkingSlot();
         if (freePlace < 0) {
-            print("We don't have free places, please sell something...");
+            System.out.println("We don't have free places, please sell smth..");
             return;
         }
         final var carPrice = carToBuy.getPrice();
-        if (balance < carToBuy.getPrice()) {
-            print("We don't have enough money(need: " + carPrice + ", have: " +
-                    balance +
-                    "), please sell something or top-up..");
+        if (balance < carPrice) {
+            System.out.println("We don't have enough money (need: " + carPrice
+                    + ", have: " + balance + "), please sell smth or top-up ..");
             return;
         }
-
         balance -= carPrice;
         parking[freePlace] = carToBuy;
     }
@@ -44,31 +38,30 @@ public class AutoSalon {
                 break;
             }
         }
-        if (freePlace < 0) {
-            print();
-        }
         return freePlace;
     }
 
     public Car sellCar(int parkingPlace) {
-        //TODO...Check if parkingPlace is not empty
-        //TODO...Check if parkingPlace is from parking range
+        //TODO check if parkingPlace is not empty
+        //TODO check if parkingPlace is from parking range
         parking[parkingPlace] = null;
         return null;
     }
 
     public void report() {
-        //printout balance and capacity
-
+        //TODO...
+        //print out balance, capacity
     }
 
     private int getFromConsoleInitialBalance() {
-        //Input form console
+        //INPUT from console
         return 200_000;
     }
 
-    private int getFromConsoleParkingCapacity() {
-        // input from console
+    private int getFromConsoleInitialCapacity() {
+        //INPUT from console
         return 5;
     }
+
+
 }
