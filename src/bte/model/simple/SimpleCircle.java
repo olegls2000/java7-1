@@ -21,4 +21,20 @@ public class SimpleCircle implements WithPerimeter, WithArea {
     public double getArea() {
         return Math.PI * radius * radius;
     }
+
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) {
+            return true;
+        }
+/*         if (object.getClass() == SimpleCircle.class) {
+
+        }*/
+
+        if (object instanceof SimpleCircle) {
+            SimpleCircle simpleCircle = (SimpleCircle) object;
+            return simpleCircle.radius == this.radius;
+        }
+        return false;
+    }
 }
