@@ -1,6 +1,6 @@
-package bte.model;
+package bte.model.simple;
 
-public class SimpleTriangle {
+public class SimpleTriangle  extends AbstractShape{
     int a;
     int b;
     int c;
@@ -49,5 +49,15 @@ public class SimpleTriangle {
         if (isImpossible) {
             throw new RuntimeException("Triangle with sides" + a + ", " + b + ", " + c + "is impossible ");
         }
+    }
+
+    @Override
+    public double getPerimeter() {
+        return a+b+c;
+    }
+
+    @Override
+    public double getSquare() {
+        return (a*b)/2.0;
     }
 }
