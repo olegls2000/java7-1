@@ -27,7 +27,7 @@ public class Lesson6 {
         int arrayIndex = 5;
 
         final Point POINT = new Point(4, 4);
-        POINT.y = 9;
+        POINT.setY(9);
 
         mutatePrimitive(arrayIndex);
         System.out.println(arrayIndex);
@@ -36,12 +36,12 @@ public class Lesson6 {
 
         WeekDay friday = WeekDay.FRIDAY;
         boolean isHoliday = friday.isHoliday;
-        String dayName = friday.name;
+        String dayName = friday.getName();
         int order = friday.ordinal();
         System.out.println(dayName + order);
         WeekDay[] weekDay = WeekDay.values();
         WeekDay radomDay = weekDay[getRandom(0, weekDay.length)];
-        System.out.println(radomDay.name);
+        System.out.println(radomDay.getName());
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Pleas input your free-style line ...");

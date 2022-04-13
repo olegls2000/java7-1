@@ -1,6 +1,6 @@
-package bte.model;
+package bte.model.simple;
 
-public class SimpleTriangle {
+public class SimpleTriangle extends AbstractShape {
     private int a;
     private int b;
     private int c;
@@ -10,6 +10,22 @@ public class SimpleTriangle {
         this.a = a;
         this.b = b;
         this.c = c;
+    }
+
+    @Override
+    public double getPerimeter() {
+        return a + b + c;
+    }
+
+    @Override
+    public double getArea() {
+        double p = getPerimeter() / 2;
+        return Math.sqrt(p * (p - a) * (p - b) * (p - c));
+    }
+
+    @Override
+    public String toString() {
+        return "Simple Triangle with radius = " + this.a + ", " + this.b + ", " + this.c;
     }
 
     public int calculatePerimeter() {

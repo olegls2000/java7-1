@@ -3,9 +3,9 @@ package bte.model;
 import static bte.utils.PointUtils.getDistance;
 
 public class Triangle {
-    public Point a;
-    public Point b;
-    public Point c;
+    private Point a;
+    private Point b;
+    private Point c;
 
     public Triangle(Point a, Point b, Point c) {
         this.a = a;
@@ -14,7 +14,7 @@ public class Triangle {
     }
 
     public double getPerimeter() {
-        return  getDistance(a, b) +
+        return getDistance(a, b) +
                 getDistance(b, c) +
                 getDistance(a, c);
     }

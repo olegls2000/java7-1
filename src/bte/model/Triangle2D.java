@@ -16,7 +16,10 @@ public class Triangle2D {
     }
 
     private void checkTriangle(Point a, Point b, Point c) {
-        boolean impossible = 1 / 2 * ((getA().x - getC().x) * (getB().y - getC().y) - (getB().x - getC().x) * (getA().y - getC().y)) == 0;
+        boolean impossible =
+                1 / 2.0 *
+                        ((a.getX() - c.getX()) * (b.getY() - c.getY())
+                                - (b.getX() - c.getX()) * (a.getY() - c.getY())) == 0;
         if (impossible) {
             System.out.println("Triangle is impossible");
         }

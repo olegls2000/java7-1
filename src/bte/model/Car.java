@@ -16,7 +16,7 @@ public class Car {
         this(getPriceFromConsole(), getWeightFromConsole(), getColorFromConsole());
     }
 
-    public Car(final int price, final int weight, final Color color) {
+    private Car(final int price, final int weight, final Color color) {
         checkWeight(weight);
         checkPrice(price);
         this.price = price;
@@ -32,7 +32,7 @@ public class Car {
         return Color.valueOf(colorFromConsole);
     }
 
-    public static int getPriceFromConsole() {
+    private static int getPriceFromConsole() {
         final var scanner = new Scanner(System.in);
         System.out.println("Pleas input the price");
         final var priceFromConsole = scanner.nextInt();
@@ -40,7 +40,7 @@ public class Car {
         return priceFromConsole;
     }
 
-    public static int getWeightFromConsole() {
+    private static int getWeightFromConsole() {
         final var scanner = new Scanner(System.in);
         System.out.println("Pleas input the weight");
         final var weightFromConsole = scanner.nextInt();

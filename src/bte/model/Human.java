@@ -1,21 +1,15 @@
 package bte.model;
 
 public class Human {
-    public int age;
-    public String name;
-    public String lastName;
-    public byte gender;
+    private int age;
+    private String name;
+    private String lastName;
+    private byte gender;
 
     public Human(String lastName) {
         this.lastName = lastName;
         this.age = (int) (Math.random() * (65 - 18)) + 18;
     }
-
-
-    //   public bte.model.Human(){
-    //        System.out.println("Default constructor in use ...");
-    //        this.age = (int) (Math.random() * (65 - 18)) + 18;
-    //  }
 
     public Human(int age, String name) {
         this.age = age;
@@ -36,4 +30,35 @@ public class Human {
         }
     }
 
+    public int getAge() {
+        return age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public byte getGender() {
+        return gender;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setGender(byte gender) {
+        this.gender = gender;
+    }
 }

@@ -9,33 +9,33 @@ public class Lesson5 {
         int i = 7;
         Human human1 = new Human("Ivanov");
         // human1.age = getRandom(18, 65);
-        human1.name = "Ivan";
+        human1.setName("Ivan");
         human1.getOlder();
-        human1.gender = 0;
+        human1.setGender((byte) 0);
 
         Human human2 = new Human("Baid");
-        human2.name = "Joe";
+        human2.setName("Joe");
         // human2.age = getRandom(18, 65);
         human2.getOlder();
-        human2.gender = 0;
+        human2.setGender((byte) 0);
 
         Human human3 = new Human("Filatova");
-        human3.name = "Katerina";
+        human3.setName("Katerina");
         // human3.age = getRandom(18, 65);
         human3.getOlder();
-        human3.gender = 1;
+        human3.setGender((byte) 1);
 
         Human[] company = {human1, human2, human3};
 
         Human youngest = company[0];
         for (Human human : company) {
-            if (human.age < youngest.age) {
+            if (human.getAge() < youngest.getAge()) {
                 youngest = human;
             }
         }
 
-        System.out.println("the youngest is: " + youngest.name +
-                " with age: " + youngest.age);
+        System.out.println("the youngest is: " + youngest.getName() +
+                " with age: " + youngest.getAge());
 
         human3.marriage(human2);
 

@@ -9,10 +9,18 @@ public enum WeekDay {
     FRIDAY(false, "Friday");
 
     public boolean isHoliday;
-    public String name;
+    private String name;
 
     WeekDay(boolean isHoliday, String name) {
         this.isHoliday = isHoliday;
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
         this.name = name;
     }
 }

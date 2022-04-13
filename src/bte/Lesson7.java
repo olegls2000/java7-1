@@ -2,7 +2,7 @@ package bte;
 
 import bte.model.Car;
 import bte.model.Point;
-import bte.model.SimpleTriangle;
+import bte.model.simple.SimpleTriangle;
 import bte.model.Triangle2D;
 import bte.service.AutoSalon;
 

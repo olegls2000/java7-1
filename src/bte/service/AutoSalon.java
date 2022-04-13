@@ -43,17 +43,6 @@ public class AutoSalon {
         return freePlace;
     }
 
-   /* private int[] getParkingPlaces(){
-        int[] parkingPlace = new ;
-        for (int i = 0; i < parking.length; i++) {
-            if (parking[i] != null){
-                parkingPlace[i] = i;
-            }
-        }
-        return parkingPlace;
-    }
-    */
-
     public int parkingPlace(){
         System.out.println("Please input parking slot: ");
         Scanner scanner = new Scanner(System.in);

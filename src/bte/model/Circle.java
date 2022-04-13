@@ -8,22 +8,22 @@ import static java.lang.Math.pow;
 public class Circle {
     private int radius;
     private Point center;
-    public Point newCenter;
+    private Point newCenter;
 
-    public int getRadius(){
-        return  this.radius;
+    public int getRadius() {
+        return this.radius;
     }
 
-    public void setRadius(int newRadius){
-        this.radius=newRadius;
+    public void setRadius(int newRadius) {
+        this.radius = newRadius;
     }
 
-    public Point getCenter(){
-        return this.center=center;
+    public Point getCenter() {
+        return this.center = center;
     }
 
-    public void setCenter(Point newPoint){
-        this.center=newPoint;
+    public void setCenter(Point newPoint) {
+        this.center = newPoint;
     }
 
     public double getArea() {
@@ -42,14 +42,14 @@ public class Circle {
 
     public void move(int xDelta, int yDelta) {
         newCenter = new Point(
-                (xDelta + this.center.x),
-                (yDelta + this.center.y));
+                (xDelta + this.center.getX()),
+                (yDelta + this.center.getY()));
         System.out.println(
-                "Original center is xDelta:" + this.center.x +
-                        " yDelta:" + this.center.y);
+                "Original center is xDelta:" + this.center.getX() +
+                        " yDelta:" + this.center.getY());
         System.out.println(
-                "New center is xDelta:" + this.newCenter.x +
-                        " yDelta:" + this.newCenter.y);
+                "New center is xDelta:" + this.newCenter.getX() +
+                        " yDelta:" + this.newCenter.getY());
         System.out.println("Distance = " + distance(center, newCenter));
     }
 
@@ -57,5 +57,4 @@ public class Circle {
         this.center = center;
         center = new Point(getRandom(0, 10), getRandom(0, 10));
     }
-
 }

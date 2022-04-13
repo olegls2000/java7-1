@@ -9,9 +9,9 @@ public class RectangleUtils {
     public static Rectangle[] generateRectangles(int count) {
         Rectangle[] result = new Rectangle[count];
         Point a = new Point(getRandom(1, 10), getRandom(1, 10));
-        Point b = new Point(a.x, getRandom(1, 10));
-        Point c = new Point(getRandom(1, 10), b.y);
-        Point d = new Point(c.x, a.y);
+        Point b = new Point(a.getX(), getRandom(1, 10));
+        Point c = new Point(getRandom(1, 10), b.getY());
+        Point d = new Point(c.getX(), a.getY());
         for (int i = 0; i < count; i++) {
             result[i] = new Rectangle(a, b, c, d);
         }
