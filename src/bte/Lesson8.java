@@ -1,6 +1,6 @@
 package bte;
 
-import Simple.SimpleTriangle;
+import bte.simple.SimpleTriangle;
 
 public class Lesson8 {
     public static void main(String[] args) {

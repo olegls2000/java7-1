@@ -1,4 +1,4 @@
-package Simple;
+package bte.simple;
 
 public class SimpleRectangle extends AbstractShape{
 

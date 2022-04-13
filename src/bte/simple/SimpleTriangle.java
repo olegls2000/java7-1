@@ -1,4 +1,4 @@
-package Simple;
+package bte.simple;
 
 public class SimpleTriangle {
     private int a;
