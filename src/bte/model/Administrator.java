@@ -12,4 +12,9 @@ public class Administrator extends AbstractEmploy {
     public String getDepartment() {
         return department;
     }
+
+    @Override
+    public void salaryReview() {
+
+    }
 }

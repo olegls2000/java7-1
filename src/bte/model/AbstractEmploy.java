@@ -11,6 +11,8 @@ public abstract class AbstractEmploy {
         this.salary = salary;
     }
 
+    public abstract void salaryReview();
+
     public int getSalary() {
         return salary;
     }

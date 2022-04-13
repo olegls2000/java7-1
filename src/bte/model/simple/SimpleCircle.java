@@ -3,7 +3,7 @@ package bte.model.simple;
 import static bte.utils.CircleUtils.PI;
 import static java.lang.Math.pow;
 
-public class SimpleCircle extends AbstractShape {
+public class SimpleCircle implements WithArea, WithPerimeter {
     private int radius;
 
     public SimpleCircle(int radius) {

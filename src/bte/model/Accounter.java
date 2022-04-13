@@ -9,7 +9,14 @@ public class Accounter extends AbstractEmploy {
         this.team = team;
     }
 
+
+
     public String getTeam() {
         return team;
+    }
+
+    @Override
+    public void salaryReview() {
+
     }
 }
