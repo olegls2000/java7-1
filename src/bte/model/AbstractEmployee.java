@@ -13,6 +13,8 @@ public abstract class AbstractEmployee  {
         this.salary = salary;
     }
 
+    public abstract void salaryReview();
+
     public int getAge() {
         return age;
     }

@@ -1,6 +1,6 @@
 package bte.model.simple;
 
-public class SimpleCircle extends AbstractShape {
+public class SimpleCircle implements WithPerimeter, WithArea {
     private int radius;
 
     public SimpleCircle(int radius) {
@@ -15,5 +15,10 @@ public class SimpleCircle extends AbstractShape {
     @Override
     public String toString() {
         return "Simple Circle with radius = " + this.radius;
+    }
+
+    @Override
+    public double getArea() {
+        return Math.PI * radius * radius;
     }
 }

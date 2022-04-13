@@ -1,6 +1,6 @@
 package bte.model.simple;
 
-public class SimpleRectangle extends AbstractShape {
+public class SimpleRectangle implements WithPerimeter {
     private int a;
     private int b;
 

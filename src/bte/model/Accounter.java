@@ -11,4 +11,9 @@ public class Accounter extends AbstractEmployee {
         super(age, name, salary);
         this.team = team;
     }
+
+    @Override
+    public void salaryReview() {
+        //TODO ...
+    }
 }

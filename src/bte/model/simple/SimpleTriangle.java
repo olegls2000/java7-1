@@ -1,6 +1,6 @@
 package bte.model.simple;
 
-public class SimpleTriangle extends AbstractShape {
+public class SimpleTriangle implements WithPerimeter {
     private int a;
     private int b;
     private int c;
