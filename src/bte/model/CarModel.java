@@ -5,7 +5,11 @@ public enum CarModel {
     AUDI("AUDI"),
     MERCEDES("Mercedes");
 
-    public String name;
+    private String name;
+
+    public String getName() {
+        return name;
+    }
 
     CarModel(String name){
         this.name = name;

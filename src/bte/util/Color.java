@@ -5,9 +5,17 @@ public enum Color {
     BLACK("Black"),
     RED("Red");
 
-    public String name;
+    private String name;
 
-    Color(String name){
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    Color(String name) {
         this.name = name;
     }
 }
