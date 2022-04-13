@@ -14,4 +14,8 @@ public class Developer extends AbstractEmployee {
     }
 
 
+    @Override
+    public void salaryReview() {
+        // TODO: 13.04.2022
+    }
 }

@@ -12,4 +12,9 @@ public class Admin extends AbstractEmployee {
         super(age, name, salary);
         this.team = team;
     }
+
+    @Override
+    public void salaryReview() {
+        // TODO: 13.04.2022
+    }
 }

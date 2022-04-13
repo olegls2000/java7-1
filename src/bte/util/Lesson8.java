@@ -4,12 +4,11 @@ import bte.model.AbstractEmployee;
 import bte.model.Accounter;
 import bte.model.Admin;
 import bte.model.Developer;
-import bte.model.simple.AbstractShape;
-import bte.model.simple.SimpleCircle;
-import bte.model.simple.SimpleRectangle;
-import bte.model.simple.SimpleTriangle;
+import bte.model.simple.*;
 import bte.service.Company;
 import bte.service.CompanyPoly;
+import bte.service.ContainerPerimeter;
+import bte.service.ContainerArea;
 
 public class Lesson8 {
     public static void main(String[] args) {
@@ -54,14 +53,23 @@ public class Lesson8 {
         SimpleRectangle rectangle2 = new SimpleRectangle(6, 3);
         //SimpleRectangle[] rectangles = {rectangle1, rectangle2};
 
-        AbstractShape[] shapes = {triangle1, triangle2, circle1, circle2, rectangle1, rectangle2};
-        AbstractShape maxPerimShape = shapes[2];
-        for (AbstractShape shape : shapes){
-            if(shape.getPerimetr() > maxPerimShape.getPerimetr()){
+        WithPerimeter[] shapes = {triangle1, triangle2, circle1, circle2, rectangle1, rectangle2};
+        WithPerimeter maxPerimShape = shapes[2];
+        for (WithPerimeter shape : shapes){
+            if(shape.getPerimeter() > maxPerimShape.getPerimeter()){
                 maxPerimShape = shape;
             }
         }
         System.out.println(maxPerimShape.toString());
+
+        /*WithPerimeter[] shapes = {triangle1, triangle2, circle1, circle2, rectangle1, rectangle2};
+        WithArea[] shapes = {triangle1, triangle2, circle1, circle2, rectangle1, rectangle2};
+        ContainerArea container = new ContainerArea(shapes);
+        ContainerPerimeter container = new ContainerPerimeter(shapes);
+        container.printShapeWithMaxArea();
+        container.printShapeWithMinArea();
+        container.printShapeWithMaxPerimeter();
+        container.printShapeWithMinPerimeter();*/
 
     }
 }
