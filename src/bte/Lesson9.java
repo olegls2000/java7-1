@@ -5,6 +5,8 @@ import bte.model.simple.SimpleRectangle;
 import bte.model.simple.SimpleTriangle;
 import bte.model.simple.WithArea;
 
+import java.util.Scanner;
+
 import static bte.util.Print.print;
 
 public class Lesson9 {
@@ -36,5 +38,68 @@ public class Lesson9 {
         print(rectangle1.equals(rectangle2));
         print(rectangle1.equals(simpleTriangle));
         print(rectangle1.equals(circle1));
+
+
+        String a = "aa";
+        String ab = a.concat("bb");
+        a += "bb";
+        String aTrimmed = a.trim();
+        print(a);
+        print(aTrimmed);
+
+
+
+        StringBuilder stringBuilder = new StringBuilder();
+        long start = System.currentTimeMillis();
+        for(int i = 0; i <100; i++){
+            //a += "a, ttt\n";
+            print(i);
+            stringBuilder.append("a, ttt \n");
+        }
+        String finalString = stringBuilder.toString();
+        print(finalString);
+        //print(a);
+        long finish = System.currentTimeMillis();
+        long duration = finish - start;
+        print("Process took: " + duration);
+
+        StringBuffer strBuffer = new StringBuffer();
+        strBuffer.append("y");
+
+
+        String sentence = "Hello from Java Course!";
+        sentence.split(" ");
+
+        String[] words = sentence.split(" ");
+        print("Words count: " + words.length);
+
+
+        Scanner scan = new Scanner(System.in);
+        print("Input your sentence to parse: ");
+        String[] sentenceFromConsole = scan.nextLine().split(" ");
+        for(int i =0;i<sentenceFromConsole.length; i++){
+            if(sentenceFromConsole[i].contains("A") ||
+                    sentenceFromConsole[i].contains("a")){
+                print(sentenceFromConsole[i]);
+            }
+
+        }
+        printShortestWord("fq fqlkwnf iubw qlwbf;k jkw;nf ui;blkjgw");
+
+    }
+
+    public static void printShortestWord(final String sentence){
+        String[] rawWords = sentence.split(" ");
+            for(int i =0; i < rawWords.length; i++){
+                String word = rawWords[i];
+            }
+        }
+
+
+
+    public static void printWordsStartFrom(String startLetter, String sentence){
+
+
+
     }
 }
