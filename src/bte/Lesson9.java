@@ -96,10 +96,16 @@ public class Lesson9 {
         }
 
 
-
-    public static void printWordsStartFrom(String startLetter, String sentence){
-
-
-
+    public static void printWordsStartFrom(final String startLetter,
+                                           final String sentence) {
+        for (String word : sentence.split(" ")) {
+            if (word.toLowerCase().startsWith(startLetter.toLowerCase())) {
+                System.out.println(word);
+            }
+        }
     }
+
+
+
+
 }
