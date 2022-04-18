@@ -2,7 +2,6 @@ package bte.utils;
 
 import bte.model.Point;
 import bte.model.Rectangle;
-
 import static bte.utils.NumberUtils.getRandom;
 
 public class RectangleUtils {

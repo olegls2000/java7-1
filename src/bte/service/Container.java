@@ -1,20 +1,20 @@
 package bte.service;
 
-import bte.model.simple.AbstractShape;
-import bte.model.simple.SimpleCircle;
-import bte.model.simple.SimpleRectangle;
-import bte.model.simple.SimpleTriangle;
+
+import bte.model.simple.*;
 
 public class Container {
-    private AbstractShape[] shapes;
+    private WithArea[] shapesWithArea;
+    private WithPerimeter[] shapesWithPerimeter;
 
-    public Container(AbstractShape[] shapes) {
-        this.shapes = shapes;
+    public Container(WithArea[] shapesWithArea, WithPerimeter[] shapesWithPerimeter) {
+        this.shapesWithArea = shapesWithArea;
+        this.shapesWithPerimeter = shapesWithPerimeter;
     }
 
     public void printShapeWithMaxArea() {
-        AbstractShape shapeMaxArea = shapes[0];
-        for (AbstractShape shape : shapes) {
+        WithArea shapeMaxArea = shapesWithArea[0];
+        for (WithArea shape : shapesWithArea) {
             if (shape.getArea() > shapeMaxArea.getArea()) {
                 shapeMaxArea = shape;
             }
@@ -22,7 +22,7 @@ public class Container {
         System.out.println("Biggest area have shape: " + getShapeName(shapeMaxArea) + " " + shapeMaxArea.getArea());
     }
 
-    private String getShapeName(AbstractShape shape) {
+    private String getShapeName(Object shape) {
         String result = "";
         if (shape instanceof SimpleCircle) {
             result = "Circle";
@@ -35,8 +35,8 @@ public class Container {
     }
 
     public void printShapeWithMinArea() {
-        AbstractShape shapeMaxArea = shapes[0];
-        for (AbstractShape shape : shapes) {
+        WithArea shapeMaxArea = shapesWithArea[0];
+        for (WithArea shape : shapesWithArea) {
             if (shape.getArea() < shapeMaxArea.getArea()) {
                 shapeMaxArea = shape;
             }
@@ -45,8 +45,8 @@ public class Container {
     }
 
     public void printShapeWithMaxPerimeter() {
-        AbstractShape shapeMaxArea = shapes[0];
-        for (AbstractShape shape : shapes) {
+        WithPerimeter shapeMaxArea = shapesWithPerimeter[0];
+        for (WithPerimeter shape : shapesWithPerimeter) {
             if (shape.getPerimeter() > shapeMaxArea.getPerimeter()) {
                 shapeMaxArea = shape;
             }
@@ -55,20 +55,12 @@ public class Container {
     }
 
     public void printShapeWithMinPerimeter() {
-        AbstractShape shapeMaxArea = shapes[0];
-        for (AbstractShape shape : shapes) {
+        WithPerimeter shapeMaxArea = shapesWithPerimeter[0];
+        for (WithPerimeter shape : shapesWithPerimeter) {
             if (shape.getPerimeter() < shapeMaxArea.getPerimeter()) {
                 shapeMaxArea = shape;
             }
         }
         System.out.println("Smallest perimeter have shape: " + getShapeName(shapeMaxArea) + " " + shapeMaxArea.getPerimeter());
-    }
-
-    public AbstractShape[] getShapes() {
-        return shapes;
-    }
-
-    public void setShapes(AbstractShape[] shapes) {
-        this.shapes = shapes;
     }
 }

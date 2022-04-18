@@ -1,6 +1,6 @@
 package bte.model.simple;
 
-public class SimpleTriangle implements WithArea,WithPerimeter {
+public class SimpleTriangle implements WithArea, WithPerimeter {
     private int a;
     private int b;
     private int c;
@@ -38,6 +38,20 @@ public class SimpleTriangle implements WithArea,WithPerimeter {
             throw new RuntimeException("Triangle with combination of sides: "
                     + a + "," + b + "," + c + " is impossible");
         }
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) {
+            return true;
+        }
+        if (object instanceof SimpleTriangle) {
+            SimpleTriangle simpleTriangle = (SimpleTriangle) object;
+            return simpleTriangle.a == this.a
+                    && simpleTriangle.b == this.b
+                    && simpleTriangle.c == this.c;
+        }
+        return false;
     }
 
     public void setA(int a) {

@@ -23,4 +23,16 @@ public class SimpleRectangle implements WithPerimeter, WithArea {
     public String toString() {
         return "Simple Rectangle with radius = " + this.a + ", " + this.b;
     }
+
+    @Override
+    public boolean equals(Object object) {
+        if(this==object){
+            return true;
+        }
+        if (object instanceof SimpleRectangle) {
+            SimpleRectangle simpleRectangle = (SimpleRectangle) object;
+            return simpleRectangle.a == this.a && simpleRectangle.b==this.b;
+        }
+        return false;
+    }
 }

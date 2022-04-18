@@ -1,9 +1,6 @@
 package bte;
 
-import bte.model.simple.AbstractShape;
-import bte.model.simple.SimpleCircle;
-import bte.model.simple.SimpleRectangle;
-import bte.model.simple.SimpleTriangle;
+import bte.model.simple.*;
 import bte.service.Container;
 
 public class HomeWorkLesson8 {
@@ -18,8 +15,9 @@ public class HomeWorkLesson8 {
         SimpleRectangle rectangle1 = new SimpleRectangle(4, 5);
         SimpleRectangle rectangle2 = new SimpleRectangle(6, 3);
 
-        AbstractShape[] shapes = {triangle1, triangle2, circle1, circle2, rectangle1, rectangle2};
-        Container container = new Container(shapes);
+        WithPerimeter[] shapesPerimeter = {triangle1, triangle2, circle1, circle2, rectangle1, rectangle2};
+        WithArea[] shapesArea = {triangle1, triangle2, circle1, circle2, rectangle1, rectangle2};
+        Container container = new Container(shapesArea, shapesPerimeter);
         container.printShapeWithMaxArea();
         container.printShapeWithMinArea();
         container.printShapeWithMaxPerimeter();
