@@ -6,6 +6,8 @@ import bte.model.simple.WithArea;
 
 import java.util.Scanner;
 
+import static bte.util.StringUtils.printWordCount;
+
 public class Lesson9 {
     public static void main(String[] args) {
         WithArea shape = new SimpleCircle(5);
@@ -89,6 +91,8 @@ public class Lesson9 {
             }
         }
         System.out.println("Shortest word: " + minSizeWord);
+
+        printWordCount("Hello hello my friend!");
     }
 
     public static void printWordsStartFrom(final String startLetter,
