@@ -19,4 +19,9 @@ public class Accountant extends AbstractEmployee {
         this.salary = salary;
         this.department = department;
     }
+
+    @Override
+    public void salaryReview() {
+
+    }
 }

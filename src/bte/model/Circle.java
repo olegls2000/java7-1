@@ -9,7 +9,15 @@ public class Circle {
         System.out.println("In static initialization block");
     }
 
-    public int radius;
+    public int getRadius() {
+        return radius;
+    }
+
+    public Point getCenter() {
+        return center;
+    }
+
+    private int radius;
 
     public Circle(int radius, Point center) {
         this.radius = radius;
@@ -32,10 +40,10 @@ public class Circle {
     }
 
     public void move(int lenX, int lenY) {
-        System.out.println("Old center coordinates: " + "x = " + this.center.x + "y = " + this.center.y);
-        this.center.x += lenX;
-        this.center.y += lenY;
-        System.out.println("New center coordinates: " + "x = " + this.center.x + "y = " + this.center.y);
+        System.out.println("Old center coordinates: " + "x = " + this.center.getX() + "y = " + this.center.getY());
+        this.center.setX(this.center.getX()+lenX);// this.center.x += lenX;
+        this.center.setY(this.center.getY()+lenY);// // this.center.y += lenY;
+        System.out.println("New center coordinates: " + "x = " + this.center.getX() + "y = " + this.center.getY());
     }
 
 }

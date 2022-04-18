@@ -16,5 +16,10 @@ public class Administrator extends AbstractEmployee {
         this.salary = salary;
         this.department = department;
     }
+
+    @Override
+    public void salaryReview() {
+
     }
+}
 

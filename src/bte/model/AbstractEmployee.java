@@ -10,6 +10,8 @@ public abstract class AbstractEmployee {
         return age;
     }
 
+    public abstract void salaryReview();
+
     public int getSalary() {
         return salary;
     }

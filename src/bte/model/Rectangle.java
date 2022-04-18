@@ -3,10 +3,10 @@ package bte.model;
 import static bte.util.PointUtils.getDistance;
 
 public class Rectangle {
-    Point a;
-    Point b;
-    Point c;
-    Point d;
+    private Point a;
+    private Point b;
+    private Point c;
+    private Point d;
 
     public Rectangle(Point a, Point b, Point c, Point d) {
         this.a = a;

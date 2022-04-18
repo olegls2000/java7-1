@@ -1,20 +1,19 @@
 package bte.service;
 
-import bte.model.simple.AbstractShape;
 import bte.model.simple.SimpleCircle;
 import bte.model.simple.SimpleRectangle;
 import bte.model.simple.SimpleTriangle;
 
 import java.util.function.Function;
 
-public class ShapeContainer {
+public class ShapeContainerInterface {
     private final int INITIAL_CAPACITY = 2;
-    private AbstractShape[] shapes;
+    private TwoInterfaces[] shapes;
     private int freeSlot;
     private int capacity;
 
-    public ShapeContainer() {
-        shapes = new AbstractShape[INITIAL_CAPACITY];
+    public ShapeContainerInterface() {
+        shapes = new TwoInterfaces[INITIAL_CAPACITY];
         freeSlot = 0;
         capacity = INITIAL_CAPACITY;
     }
@@ -27,11 +26,11 @@ public class ShapeContainer {
         this.capacity = capacity;
     }
 
-    public void addShape(AbstractShape shape) {
+    public void addShape(TwoInterfaces shape) {
 
         if (freeSlot >= capacity) {
             capacity *= 2;
-            AbstractShape[] tmp = new AbstractShape[capacity];
+            TwoInterfaces[] tmp = new TwoInterfaces[capacity];
             System.arraycopy(shapes, 0, tmp, 0, shapes.length);
             shapes = tmp;
         }
@@ -39,7 +38,7 @@ public class ShapeContainer {
         freeSlot++;
     }
 
-    private String findType(AbstractShape shapeMaxPerimeter) {
+    private String findType(Object shapeMaxPerimeter) {
         String shapeType = "";
         if (shapeMaxPerimeter instanceof SimpleTriangle) {
             shapeType = "Triangle";
@@ -85,10 +84,10 @@ public class ShapeContainer {
 
     public void printNameWithMinSquare() {
         var shapeSquare = shapes[0];
-        double minSquare = shapeSquare.getSquare();
+        double minSquare = shapeSquare.getArea();
         for (var s : shapes) {
             if (s != null) {
-                if (s.getSquare() < minSquare) {
+                if (s.getArea() < minSquare) {
                     shapeSquare = s;
                 }
             } else
@@ -96,15 +95,15 @@ public class ShapeContainer {
         }
 
         System.out.println(findType(shapeSquare) + " with min square " +
-                shapeSquare.getSquare() + "!!!");
+                shapeSquare.getArea() + "!!!");
     }
 
     public void printNameWithMaxSquare() {
         var shapeSquare = shapes[0];
-        double maxSquare = shapeSquare.getSquare();
+        double maxSquare = shapeSquare.getArea();
         for (var s : shapes) {
             if (s != null) {
-                if (s.getSquare() > maxSquare) {
+                if (s.getArea() > maxSquare) {
                     shapeSquare = s;
                 }
             } else
@@ -112,10 +111,10 @@ public class ShapeContainer {
         }
 
         System.out.println(findType(shapeSquare) + " with max square " +
-                shapeSquare.getSquare() + "!!!");
+                shapeSquare.getArea() + "!!!");
     }
 
-    public void printNameWithMaxFunction(Function<AbstractShape,Double> func) {
+    public void printNameWithMaxFunction(Function<TwoInterfaces,Double> func) {
         var shapeF = shapes[0];
         double functionality = func.apply(shapeF);
 
@@ -133,6 +132,6 @@ public class ShapeContainer {
                 func.apply(shapeF) + "!!!");
     }
     public void printNameWithMaxSquareF() {
-        printNameWithMaxFunction(AbstractShape::getSquare);
+        printNameWithMaxFunction(TwoInterfaces::getArea);
     }
 }

@@ -63,6 +63,12 @@ public class Lesson8 {
         containerOfShapes.printNameWithMinSquare();
 
         containerOfShapes.printNameWithMaxSquareF();
+
+        SimpleRectangle recA = new SimpleRectangle(4, 5);
+        SimpleRectangle recB = new SimpleRectangle(6, 3);
+        Object[] rectangles1 = {rec1, rec2};
+
+
     }
 
 

@@ -20,4 +20,9 @@ public class Developer extends AbstractEmployee {
         this.salary = salary;
         this.programmingLanguage = programmingLanguage;
     }
+
+    @Override
+    public void salaryReview() {
+
+    }
 }

@@ -14,7 +14,7 @@ public class Triangle2D {
 
     private static void checkIsTriangleValid(Point p1, Point p2, Point p3) {
     //https://completerepair.ru/kak-opredelit-lezhat-li-tochki-na-odnoj-pryamoj
-        if((p3.y-p1.y)*(p2.x-p1.x)  == (p3.x-p1.x)*(p2.y-p1.y) ) {
+        if((p3.getY()-p1.getY())*(p2.getX()-p1.getX())  == (p3.getY()-p1.getX())*(p2.getY()-p1.getY()) ) {
             throw new RuntimeException("Triangle is invalid");
         }
     }

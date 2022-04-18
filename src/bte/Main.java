@@ -47,18 +47,18 @@ public class Main {
         printMatrix(matrix1, "After MinElFirst(s) modification:");
 
         Circle[] circles = getCircles(10);
-        circles[0].move(3,3);
-        circles[0].move(1,1);
+        circles[0].move(3, 3);
+        circles[0].move(1, 1);
         Circle circle = getCircleWithMaxArea(circles);
-        System.out.println("The circle with radius " + circle.radius + " and maximum area : " + circle.getArea());
+        System.out.println("The circle with radius " + circle.getRadius() + " and maximum area : " + circle.getArea());
         Circle[] circlesLens = getCircles(5, 2, 600);
 
         Circle circleLen = getCircleWithMinLength(circlesLens);
-        System.out.println("The circle with radius " + circleLen.radius + " and minimum length : " + circleLen.getLength());
-        double distance=getDistanceBetweenCenters(new Circle(3, new Point(1,1)), new Circle(3, new Point(2,2)));
+        System.out.println("The circle with radius " + circleLen.getRadius() + " and minimum length : " + circleLen.getLength());
+        double distance = getDistanceBetweenCenters(new Circle(3, new Point(1, 1)), new Circle(3, new Point(2, 2)));
         Circle circleNearest = CircleUtils.closerToCenter(circlesLens);
-        System.out.println("The closest to the center circle with radius " + circleNearest.radius
-                + " and circle center (" + circleNearest.center.x + "," + circleNearest.center.y + ")");
+        System.out.println("The closest to the center circle with radius " + circleNearest.getRadius()
+                + " and circle center (" + circleNearest.center.getX() + "," + circleNearest.center.getY() + ")");
 
 
     }
@@ -313,7 +313,6 @@ public class Main {
             matrix[i][imin] = temp;
         }
     }
-
 
 
 }
