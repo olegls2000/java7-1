@@ -44,6 +44,9 @@ public class StringUtils {
         String[] words = sentenceRefactor(sentence.trim());
         System.out.print("Words that start and end from the same letter is: ");
         for (int i = 0; i < words.length; i++) {
+            if (words[i].isEmpty()) {
+                continue;
+            }
             if (words[i].charAt(0) == words[i].charAt(words[i].length() - 1)) {
                 System.out.print(words[i] + ", ");
             }
@@ -73,11 +76,29 @@ public class StringUtils {
                 if (word.equals(s)) {
                     count++;
                     System.out.print(s + " " + count + ", ");
-                  //  if (count > 1) {
-
-                    }
+                    //  if (count > 1) {
                 }
             }
         }
+        System.out.println();
     }
+
+    public static void printWordCount(String sentence) {
+        final var words = sentenceRefactor(sentence.trim());
+        int[] counter = new int[words.length];
+        for (int i = 0; i < words.length; i++) {
+            String word = words[i];
+            int wordCount = 0;
+            for (int j = 0; j < words.length; j++) {
+                if (word.equalsIgnoreCase(words[j])) {
+                    wordCount++;
+                }
+            }
+            counter[i] = wordCount;
+        }
+        for (int i = 0; i < words.length; i++) {
+            System.out.print(words[i] + " " + counter[i] + ", ");
+        }
+    }
+}
 

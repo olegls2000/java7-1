@@ -4,7 +4,7 @@ import static bte.utils.StringUtils.*;
 
 public class HomeWorkLesson9 {
     public static void main(String[] args) {
-        String sentence = "Assumec: that we have sentence," +
+        String sentence = "Assumec:  that we have sentence," +
                 " create a method that finds and prints the " +
                 "longest and shortest: words. Place the method" +
                 " into StringUtils class (need to be created).";
@@ -12,5 +12,6 @@ public class HomeWorkLesson9 {
         startAndEndWithSameLetter(sentence);
         replaces(sentence);
         repeatedWords(sentence);
+        printWordCount(sentence);
     }
 }
