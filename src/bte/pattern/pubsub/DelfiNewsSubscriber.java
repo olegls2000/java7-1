@@ -1,5 +1,4 @@
-import bte.pattern.pubsub.News;
-import bte.pattern.pubsub.NewsSubscriber;
+package bte.pattern.pubsub;
 
 public class DelfiNewsSubscriber implements NewsSubscriber {
     @Override

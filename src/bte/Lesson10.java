@@ -1,7 +1,11 @@
 package bte;
 
 import bte.pattern.builder.*;
+import bte.pattern.pubsub.*;
 import bte.pattern.singletone.Singleton;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static bte.util.Print.print;
 import static bte.util.Print.printnb;
@@ -32,6 +36,17 @@ public class Lesson10 {
         Singleton singletonObject = Singleton.getInstance();
         Singleton newSingleton = Singleton.getInstance();
         print("Some logic... ");
+
+        List<NewsSubscriber> subscriberList = new ArrayList<>();
+        subscriberList.add(new CnnNewsSubscriber());
+        subscriberList.add(new ErrNewsSubscriber());
+        NewsSourceAgency newsSourceAgency = new NewsSourceAgency(subscriberList);
+        newsSourceAgency.publish(new News("News1", "News One content"));
+        newsSourceAgency.publish(new News("News2", "News Two content"));
+        newsSourceAgency.addNewSubscriber(new DelfiNewsSubscriber());
+        newsSourceAgency.publish(new News("News3", "News Three content"));
+        newsSourceAgency.removeSubscriber(1);
+        newsSourceAgency.publish(new News("News4", "News Four content"));
 
 
 
