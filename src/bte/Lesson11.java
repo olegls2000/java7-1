@@ -1,17 +1,21 @@
 package bte;
 
 import bte.model.Point;
+import bte.model.simple.SimpleCircle;
 import bte.pattern.iterator.Iterator;
 import bte.pattern.iterator.IterableContainer;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+import static bte.util.ArrayUtils.printAndReturnFigureWithPerimeter;
 import static bte.util.Print.print;
 import static java.time.Month.JANUARY;
 
 public class Lesson11 {
     public static void main(String[] args) {
+
+
         //SomeInterface instance = new SomeInterfaceImpl();
         SomeInterface instanceAnonymous = new SomeInterface() {
             @Override
@@ -66,5 +70,13 @@ public class Lesson11 {
         print(item);
         }
 
+        SimpleCircle circle = new SimpleCircle(5);
+        SimpleCircle c =printAndReturnFigureWithPerimeter(circle);
+        Point[] c1 = printAndReturnFigureWithPerimeter(points);
+        Point c2 = printAndReturnFigureWithPerimeter(points[0]);
+
+
     }
+
+
 }
