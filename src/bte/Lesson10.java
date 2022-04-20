@@ -1,17 +1,40 @@
 package bte;
 
+import bte.pattern.builder.*;
+import bte.pattern.singletone.Singleton;
+
 import static bte.util.Print.print;
 import static bte.util.Print.printnb;
 
 public class Lesson10 {
     public static void main(String[] args) {
-        printTillZero(6);
-        printTillZeroRecursively(6);
-        print();
-        printFromZeroTillN(7);
-        print();
-        long fibo = getFiboNumber(8);
-        print(fibo);
+//        printTillZero(6);
+//        printTillZeroRecursively(6);
+//        print();
+//        printFromZeroTillN(7);
+//        print();
+//        long fibo = getFiboNumber(8);
+//        print(fibo);
+        AutoBuilder autoBuilder = new AutoBuilder();
+        autoBuilder.engine(new Engine());
+        Wheel wheel1 = new Wheel();
+        Wheel wheel2 = new Wheel();
+        Wheel wheel3 = new Wheel();
+        Wheel wheel4 = new Wheel();
+        Wheel[] wheels = {wheel1,wheel2,wheel3,wheel4};
+        autoBuilder
+                .wheels(wheels)
+                .body(new Body());
+        print("afegrg");
+
+        Auto auto = autoBuilder.build();
+
+        Singleton singletonObject = Singleton.getInstance();
+        Singleton newSingleton = Singleton.getInstance();
+        print("Some logic... ");
+
+
+
     }
 
     private static void printTillZero(int from) {
