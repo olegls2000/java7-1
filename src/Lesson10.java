@@ -1,6 +1,10 @@
 import bte.pattern.builder.*;
+import bte.pattern.builder.pubsub.*;
 import bte.pattern.singleton.Singleton;
 import bte.service.AutoSalon;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Lesson10 {
     public static void main(String[] args) {
@@ -26,6 +30,18 @@ public class Lesson10 {
         AutoSalon autoSalon = new AutoSalon();
         Singleton singletonObject = Singleton.getInstance();
         Singleton newSingleton = Singleton.getInstance();
+        System.out.println("Some logic ..");
+        List<NewsSubscriber> subscriberList = new ArrayList<>();
+        subscriberList.add(new CnnNewsSubscribers());
+        subscriberList.add(new ErrNewsSubscribers());
+        NewsSourceAgency newsSourceAgency = new NewsSourceAgency(subscriberList);
+        newsSourceAgency.publicNews(new News("News1", "News One content"));
+        newsSourceAgency.publicNews(new News("News2", "News Two content"));
+        newsSourceAgency.addNewSubscriber(new DelfiNewsSubscribers());
+        newsSourceAgency.publicNews(new News("News3", "News Three content"));
+        newsSourceAgency.removeSubscriber(1);
+        newsSourceAgency.publicNews(new News("News4", "News Four content"));
+
     }
 
     private static void someMeth(AutoBuilder autoBuilder){
