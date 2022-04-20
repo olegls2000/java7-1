@@ -36,12 +36,12 @@ public class Lesson10 {
         subscriberList.add(new CnnNewsSubscriber());
         subscriberList.add(new ErrNewsSubscriber());
         NewsSourceAgency newsSourceAgency = new NewsSourceAgency(subscriberList);
-        newsSourceAgency.publish(new News("News1","New one content"));
-        newsSourceAgency.publish(new News("News2","News two content"));
+        newsSourceAgency.publish(new News("News1", "New one content"));
+        newsSourceAgency.publish(new News("News2", "News two content"));
         subscriberList.add(new DelfiNewsSubscriber());
-        newsSourceAgency.publish(new News("News3","News three content"));
+        newsSourceAgency.publish(new News("News3", "News three content"));
         newsSourceAgency.removeSubscriber(1);
-        newsSourceAgency.publish(new News("News4","News four content"));
+        newsSourceAgency.publish(new News("News4", "News four content"));
     }
 
     private static void printTillZero(int from) {
@@ -74,9 +74,9 @@ public class Lesson10 {
         if (number == 1) {
             return 0;
         }
-        if (number ==2){
+        if (number == 2) {
             return 1;
         }
-            return getFiboNumbers(number - 1) + getFiboNumbers(number - 2);
+        return getFiboNumbers(number - 1) + getFiboNumbers(number - 2);
     }
 }
