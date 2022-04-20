@@ -47,7 +47,7 @@ public class Lesson9 {
 
 
         System.out.println(replaceSemicolonAndCount(sentence2));
-
+        System.out.println(replaceColonBySemicolonAndCount(sentence2));
         Scanner scanner2 = new Scanner(System.in);
         System.out.println("Input your sentence to parse...");
         String sentence3 = scanner.nextLine();
