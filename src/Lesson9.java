@@ -109,7 +109,6 @@ public class Lesson9 {
         System.out.println("Shortest word: " + minSizeWord);
     }
 
-
     public static void printWordsStartFrom(final String startLetter, final String sentence){
        for (String word : sentence.split(" ")){
             if (word.toLowerCase().startsWith(startLetter.toLowerCase())){
