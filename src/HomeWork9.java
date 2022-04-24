@@ -10,7 +10,7 @@ public class HomeWork9 {
         System.out.println("Input your text ...");
         String sentenceFromConsole = scanner.nextLine();
 
-        StringUtils.printLongestWord(sentenceFromConsole);
+        printLongestWord(sentenceFromConsole);
         printShortestWord(sentenceFromConsole);
         startEndSameLetter(sentenceFromConsole);
         printReplace(sentenceFromConsole);

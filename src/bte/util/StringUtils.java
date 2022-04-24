@@ -1,8 +1,10 @@
 package bte.util;
 
+import java.util.Objects;
+
 public class StringUtils {
 
-    public static void printLongestWord(final String sentence) {
+    public static String[] sentenceRefactor(final String sentence) {
         String[] rawWord = sentence.split(" ");
         String[] words = new String[rawWord.length];
         for (int i = 0; i < rawWord.length; i++) {
@@ -20,63 +22,57 @@ public class StringUtils {
                     .trim();
             words[i] = word;
         }
-        String minSizeWord = words[0];
-        for (String word : words) {
-            if (word.length() < minSizeWord.length()) {
-                minSizeWord = word;
-            }
-        }
-        System.out.println("Shortest word: " + minSizeWord);
+        return words;
     }
 
-    public static void printShortestWord(final String sentence) {
-        String[] rawWord = sentence.split(" ");
-        String[] words = new String[rawWord.length];
-        for (int i = 0; i < rawWord.length; i++) {
-            String word = rawWord[i]
-                    .replace("!", " ")
-                    .replace("?", " ")
-                    .replace(".", " ")
-                    .replace(",", " ")
-                    .replace(":", " ")
-                    .replace(";", " ")
-                    .replace("-", " ")
-                    .replace("_", " ")
-                    .replace("(", " ")
-                    .replace(")", " ")
-                    .trim();
-            words[i] = word;
-        }
+    public static void printLongestWord(final String sentence){
+        String[] words = sentenceRefactor(sentence);
         String maxSizeWord = words[0];
         for (String word : words) {
-            if (word.length() > maxSizeWord.length()) {
+            if (word.length() < maxSizeWord.length()) {
                 maxSizeWord = word;
             }
         }
         System.out.println("Longest word: " + maxSizeWord);
     }
 
-    public static void startEndSameLetter(final String sentence) {
-        for (String word : sentence.split(" ")) {
-            if (word.startsWith(word) == word.endsWith(word)) {
-                System.out.println(word);
+    public static void printShortestWord(final String sentence) {
+        String[] words = sentenceRefactor(sentence);
+        String minSizeWord = words[0];
+        for (String word : words) {
+            if (word.length() > minSizeWord.length()) {
+                minSizeWord = word;
             }
         }
+        System.out.println("Shortest word: " + minSizeWord);
+    }
+
+    public static void startEndSameLetter(final String sentence) {
+        String[] words = sentenceRefactor(sentence.trim());
+        System.out.print("Words that start and end from the same letter is: ");
+        for (int i = 0; i < words.length; i++) {
+            if (words[i].isEmpty()) {
+                continue;
+            }
+            if (words[i].charAt(0) == words[i].charAt(words[i].length() - 1)) {
+                System.out.print(words[i] + ", ");
+            }
+        }
+        System.out.println();
     }
 
     public static void printReplace(final String sentence) {
-        String[] rawWord = sentence.split(" ");
-        String[] words = new String[rawWord.length];
-        for (int i = 0; i < rawWord.length; i++) {
-            String word = rawWord[i]
-                    .replace(":", ";");
-            words[i] = word;
+        String[] words = sentence.trim().split("");
+        String[] newString = new String[words.length];
+        int count = 0;
+        for (int i = 0; i < words.length; i++) {
+            String word = words[i].replace(":", ";");
+            newString[i] = word;
+            if (!Objects.equals(words[i], newString[i])) {
+                count++;
+            }
         }
-        String minSizeWord = words[0];
-        for (String word : words) {
-                minSizeWord = word;
-        }
-        System.out.println("Shortest word: " + minSizeWord);
+        System.out.println("Quantity of replacements: " + count);
     }
 
     public static void eachWord(final String sentence) {
@@ -94,28 +90,26 @@ public class StringUtils {
             counter[i] = wordCount;
         }
         for (int i = 0; i < words.length; i++){
-            System.out.println(words[i] + "occurs: " + counter[i] + "times");
+            System.out.println(words[i] + " occurs: " + counter[i] + " times ");
         }
     }
 
-    private static String[] getWordsFromText(String text){
-        String[] rawWord = text.split(" ");
-        String[] words = new String[rawWord.length];
-        for (int i = 0; i < rawWord.length; i++) {
-            String word = rawWord[i]
-                    .replace("!", " ")
-                    .replace("?", " ")
-                    .replace(".", " ")
-                    .replace(",", " ")
-                    .replace(":", " ")
-                    .replace(";", " ")
-                    .replace("-", " ")
-                    .replace("_", " ")
-                    .replace("(", " ")
-                    .replace(")", " ")
-                    .trim();
-            words[i] = word;
+    private static String[] getWordsFromText(String sentence){
+        final var words = sentenceRefactor(sentence.trim());
+        int[] counter = new int[words.length];
+        for (int i = 0; i < words.length; i++) {
+            String word = words[i];
+            int wordCount = 0;
+            for (int j = 0; j < words.length; j++) {
+                if (word.equalsIgnoreCase(words[j])) {
+                    wordCount++;
+                }
+            }
+            counter[i] = wordCount;
         }
-        return null;
+        for (int i = 0; i < words.length; i++) {
+            System.out.println(words[i] + " " + counter[i] + ", ");
+        }
+        return words;
     }
 }
