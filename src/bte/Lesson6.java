@@ -56,4 +56,6 @@ public class Lesson6 {
     public static void muteteObject(Point p) {
         p = new Point(5, 5);
     }
+
+
 }
