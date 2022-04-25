@@ -2,7 +2,7 @@ package pattern.iterator;
 
 import java.util.List;
 
-public class ListOfIntegers implements IterableCollection {
+public class ListOfIntegers<I extends Number> implements IterableCollection {
     private List<Integer> array;
 
     public ListOfIntegers(List<Integer> array) {

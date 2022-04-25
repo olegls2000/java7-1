@@ -1,4 +1,4 @@
-package pattern.iterator;
+package pattern.iterator.generic;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,11 +10,13 @@ public class Usage {
             array.add(i);
         }
 
-        ListOfIntegers<Number> list = new ListOfIntegers<>(array);
-        Iterator iterator = list.createIterator();
+        ListOfIntegers<Integer> list = new pattern.iterator.generic.ListOfIntegers<>(array);
+        Iterator<Integer> iterator = list.createIterator();
         while (iterator.hasNext()) {
             System.out.print(iterator.next() + " ");
         }
         System.out.println();
+       // Integer[] integers={1,2,3,4};
+       // Iterator<Integer> iteratorInt = IterableCollection<>(integers);
     }
 }
