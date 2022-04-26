@@ -8,7 +8,36 @@ public class Truck extends AbstractCar {
 
     private int cargo;
 
-    public Truck(int techStatus, LocalDate releaseDate, CarManufacturer manufacturer, int cargo) {
+    @Override
+    public void printCarInfo() throws Throwable {
+        System.out.println("Hello from Truck!!!");
+        if (1 == 2) {
+            throw new InvalidCarException(null, null, null);
+        } else {
+            throw new IllegalAccessException();
+        }
+
+    }
+
+    public int excWithFinal() {
+        int result = 1;
+        try {
+            result++;
+            throw new RuntimeException("Random Exc");
+            //result++;
+        } catch (RuntimeException e) {
+            result++;
+            throw new RuntimeException("Innewr Exception");
+            //System.exit(0);
+        } finally {
+            return 5;
+        }
+    }
+
+
+    public Truck(int techStatus, LocalDate releaseDate,
+                 CarManufacturer manufacturer, int cargo)
+            throws InvalidCarException {
         super(techStatus, releaseDate, manufacturer);
         checkCargo(cargo);
         this.cargo = cargo;

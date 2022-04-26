@@ -8,7 +8,8 @@ public class Passenger extends AbstractCar {
     private static final int MAX_CAPACITY = 8;
     private int capacity;
 
-    public Passenger(int techStatus, LocalDate releaseDate, CarManufacturer manufacturer, int capacity) {
+    public Passenger(int techStatus, LocalDate releaseDate, CarManufacturer manufacturer, int capacity)
+            throws InvalidCarException {
         super(techStatus, releaseDate, manufacturer);
         checkCapacity(capacity);
         this.capacity = capacity;
@@ -20,5 +21,10 @@ public class Passenger extends AbstractCar {
                     "and less than: " + MAX_CAPACITY);
             throw new RuntimeException("Unacceptable conditions");
         }
+    }
+
+    @Override
+    public void printCarInfo() throws Throwable {
+
     }
 }
