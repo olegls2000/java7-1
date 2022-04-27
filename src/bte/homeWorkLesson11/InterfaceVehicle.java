@@ -27,16 +27,24 @@ public interface InterfaceVehicle {
                 || passengerSeatToValidate > MAX_PASSENGER_SEAT){
             System.out.println("Passenger seats is invalid, must be higher then:" + MIN_PASSENGER_SEAT
             + ", and lower then" + MAX_PASSENGER_SEAT);
-            throw new RuntimeException("Invalid passenger seats!");
+            try {
+                throw new RuntimeException("Invalid passenger seats!");
+            } catch (InvalidCarException e) {
+                throw new InvalidCarException("Invalid passenger seats", e.getCarPropertyName(),MIN_PASSENGER_SEAT + " " + MAX_PASSENGER_SEAT);
+            }
         }
     }
 
     default void checkLoad(int loadToValidate) {
         if (loadToValidate < MIN_LOAD
                 || loadToValidate > MAX_LOAD){
-            System.out.println("Load is invalid, must be higher then:" + MIN_LOAD
-                    + ", and lower then" + MAX_LOAD);
-            throw new RuntimeException("Invalid load!");
+            try {
+                throw new Exception("Invalid load");
+            } catch (InvalidCarException e) {
+                throw new InvalidCarException("Invalid load", e.getCarPropertyName(), MIN_LOAD + " " + MAX_LOAD);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 }

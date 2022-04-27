@@ -3,7 +3,7 @@ package bte.homeWorkLesson11;
 public class AutoSalonApiImpl implements AutoSalonApi {
     int balance;
     private AbstractVehicle[] parking = new AbstractVehicle[8];
-    AutoSalonApiImpl autoSalon = new AutoSalonApiImpl();
+   // AutoSalonApiImpl autoSalon = new AutoSalonApiImpl();
 
 
     @Override
@@ -67,7 +67,7 @@ public class AutoSalonApiImpl implements AutoSalonApi {
         @Override
         public void report() {
             System.out.println(balance);
-            System.out.println("Cars in stock ");
+            System.out.println("Cars in stock " + parking.length);
         }
 
     private int evaluatePrice(AbstractVehicle auto) {

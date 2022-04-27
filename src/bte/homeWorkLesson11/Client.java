@@ -14,5 +14,6 @@ public class Client {
     autoSalon.bayCar();}
 
  */
+        AbstractVehicle car = new Truck();
     }
 }
