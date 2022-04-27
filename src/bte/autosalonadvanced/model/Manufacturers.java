@@ -40,6 +40,6 @@ public enum Manufacturers {
 
     @Override
     public String toString() {
-        return "Model = '" + model + '\'';
+        return '\'' + model + '\'';
     }
 }

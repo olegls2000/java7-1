@@ -1,23 +1,31 @@
 package bte.autosalonadvanced.model;
 
 import java.time.LocalDate;
-import java.time.Period;
 
 public class PassengerCar extends Car {
     private final static int MIN_NUMBER_OF_SEATS = 2;
     private final static int MAX_NUMBER_OF_SEATS = 8;
 
-    private final static int COEFFICIENT_SEATS = 150;
 
     private int numberOfSeats;
 
-    public PassengerCar(final int technicalCondition,final Manufacturers manufacturer,final int numberOfSeats) {
+    public PassengerCar(final int technicalCondition, final Manufacturers manufacturer,
+                        final int numberOfSeats) throws InvalidCarException {
         super(technicalCondition, manufacturer);
         if (isNumberOfSeats(numberOfSeats))
             this.numberOfSeats = numberOfSeats;
         else
-            throw new RuntimeException("The number of seats must be between "
-                    + MIN_NUMBER_OF_SEATS + " and " + MAX_NUMBER_OF_SEATS);
+            throw new InvalidCarException("The number of seats must be between "
+                    + MIN_NUMBER_OF_SEATS + " and " + MAX_NUMBER_OF_SEATS + " was " + numberOfSeats,
+                    "Number of seats", this);
+
+    }
+
+    public PassengerCar(final int technicalCondition, final Manufacturers manufacturer,
+                        final int numberOfSeats, final LocalDate localDate) throws InvalidCarException {
+        this(technicalCondition, manufacturer, numberOfSeats);
+        setLocalDate(localDate);
+
     }
 
     private static boolean isNumberOfSeats(int numberOfSeats) {
@@ -28,12 +36,11 @@ public class PassengerCar extends Car {
         return numberOfSeats;
     }
 
-
     @Override
-    public int EstimatedCost() {
-        // ПассажироМеста*КоэфПассажиромест - возрастАвтомобиля*КоэфВозраста+техничСостояние*КоэфТехнСостояния
-        return numberOfSeats * COEFFICIENT_SEATS -
-                Period.between(getLocalDate(), LocalDate.now()).getYears() * COEFFICIENT_AGE
-                + getTechnicalCondition() * COEFFICIENT_TECHNICAL_STATE;
+    public String toString() {
+        return "\nPassenger car " + this.getManufacturer() + ":\n{\n" +
+                "Number of seats = " + numberOfSeats + "\n" +
+                "Production date = " + this.getLocalDate() + "\n" +
+                "Technical condition = " + this.getTechnicalCondition() + "\n}\n";
     }
 }

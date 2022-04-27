@@ -11,15 +11,22 @@ public class Truck extends Car {
 
     private int loadCapacity;
 
-    public Truck(final int technicalCondition,final Manufacturers manufacturer, final int loadCapacity)  {
-
-           super(technicalCondition, manufacturer);
+    public Truck(final int technicalCondition, final Manufacturers manufacturer, final int loadCapacity) throws InvalidCarException {
+        super(technicalCondition, manufacturer);
 
         if (isLoadCapacity(loadCapacity))
             this.loadCapacity = loadCapacity;
         else
-            throw new RuntimeException("Load capacity must be between "
-                    + MIN_LOAD_CAPACITY + " and " + MAX_LOAD_CAPACITY);
+            throw new InvalidCarException("Load capacity must be between "
+                    + MIN_LOAD_CAPACITY + " and " + MAX_LOAD_CAPACITY + ", was " + loadCapacity,
+                    "Load capasity", this);
+
+    }
+
+    public Truck(final int technicalCondition, final Manufacturers manufacturer,
+                 final int loadCapacity, final LocalDate localDate) throws InvalidCarException {
+        this(technicalCondition, manufacturer, loadCapacity);
+        setLocalDate(localDate);
     }
 
     public int getLoadCapacity() {
@@ -27,18 +34,15 @@ public class Truck extends Car {
     }
 
     private static boolean isLoadCapacity(final int loadCapacity) {
-        if (loadCapacity >= MIN_LOAD_CAPACITY && loadCapacity <= MAX_LOAD_CAPACITY)
-            return true;
-        return false;
+        return loadCapacity >= MIN_LOAD_CAPACITY && loadCapacity <= MAX_LOAD_CAPACITY;
     }
+
     @Override
-    public int EstimatedCost() {
-     //   грузоподьемность*КоэфГруза - возрастАвтомобиля*КоэфВозраста+техничСостояние*КоэфТехнСостояния
-     //   long between = ChronoUnit.YEARS.between(getLocalDate(),LocalDate.now() );
-
-        return loadCapacity * COEFFICIENT_CARGO -
-                Period.between(LocalDate.now(), getLocalDate()).getYears()*COEFFICIENT_AGE +
-                getTechnicalCondition() * COEFFICIENT_TECHNICAL_STATE;
-
+    public String toString() {
+        return "\nTruck " + this.getManufacturer() + ":\n{\n" +
+                "Load capacity = " + loadCapacity + "\n" +
+                "Production date = " + this.getLocalDate() + "\n" +
+                "Technical condition = " + this.getTechnicalCondition() + "\n}\n";
     }
+
 }
