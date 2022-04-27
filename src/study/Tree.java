@@ -1,4 +1,4 @@
-package bte;
+package study;
 
 public class Tree {
 //Демонстрация перегрузки конструкторов наряду

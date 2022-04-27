@@ -1,4 +1,4 @@
-package bte;
+package study;
 
 public class DogTest {
     public static void main(String[] args) {
