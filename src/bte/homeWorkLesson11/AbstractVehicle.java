@@ -6,18 +6,21 @@ import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public abstract class AbstractVehicle implements InterfaceVehicle {
+    private static final int MAX_AGE = 8;
+    LocalDate releasedDate;
     private int age;
     private int technicalCondition;
     private VehicleBrand carBrand;
 
 
-
-    public AbstractVehicle(int age, int technicalCondition, VehicleBrand carBrand) {
+    public AbstractVehicle(LocalDate releasedDate, int technicalCondition, VehicleBrand carBrand) throws InvalidCarException {
         checkTechnicalCondition(technicalCondition);
-        this.age = age;
+        checkAge(releasedDate);
+        this.releasedDate = releasedDate;
         this.technicalCondition = technicalCondition;
         this.carBrand = carBrand;
     }
+
     static VehicleBrand getCarBrandFromConsole() {
         final var scanner = new Scanner(System.in);
         System.out.println("Pleas input Car Brand ...");
@@ -26,15 +29,13 @@ public abstract class AbstractVehicle implements InterfaceVehicle {
         return carBrand;
     }
 
-    static int getAgeFromConsole() {
+    static LocalDate getReleaseDateFromConsole() {
         final var scanner = new Scanner(System.in);
-        System.out.println("Please input car age ...");
+        System.out.println("Please input car release date ...");
         final var ageFromConsole = scanner.nextLine();
         DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("d.M.yyyy");
         LocalDate carIssueDate = LocalDate.parse(ageFromConsole, dateFormat);
-        LocalDate dateNow = LocalDate.now();
-        int carAge = Period.between(carIssueDate, dateNow).getYears();
-        return carAge;
+        return carIssueDate;
     }
 
     static int getTechnicalConditionFromConsole() {
@@ -69,4 +70,27 @@ public abstract class AbstractVehicle implements InterfaceVehicle {
     public void setCarBrand(VehicleBrand carBrand) {
         this.carBrand = carBrand;
     }
+
+    private void checkAge(LocalDate releaseDate) throws InvalidCarException {
+        final var age = Period.between(releaseDate, LocalDate.now()).getYears();
+        if (age > MAX_AGE) {
+            try {
+                throw new InvalidCarException("Car age is greater than Max", "age", age);
+            } catch (InvalidCarException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+    private int getAgeInYears(LocalDate date) {
+        return Period.between(date, LocalDate.now()).getYears();
+    }
+
+    public void printCarInfo() throws Exception {
+        if (1 != 2) {
+            throw new Exception("From Parent");
+            //   throw new InvalidCarException("TT", null, null);
+        }
+    }
+
 }

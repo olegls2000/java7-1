@@ -1,5 +1,6 @@
 package bte.homeWorkLesson11;
 
+import java.time.LocalDate;
 import java.util.Scanner;
 
 public class Car extends AbstractVehicle implements InterfaceVehicle {
@@ -8,12 +9,12 @@ public class Car extends AbstractVehicle implements InterfaceVehicle {
 
     public Car() {
         this(
-                getAgeFromConsole(), getTechnicalConditionFromConsole(),
+                getReleaseDateFromConsole(), getTechnicalConditionFromConsole(),
                 getPassengerSeatsFormConsole(), getCarBrandFromConsole());
     }
 
-    public Car(int age, int technicalCondition, int passengerSeats, VehicleBrand carBrand) {
-        super(age, technicalCondition, carBrand);
+    public Car(LocalDate releasedDate, int technicalCondition, int passengerSeats, VehicleBrand carBrand) {
+        super(releasedDate, technicalCondition, carBrand);
         checkPassengerSeat(passengerSeats);
         this.passengerSeats = passengerSeats;
     }
