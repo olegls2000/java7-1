@@ -1,7 +1,7 @@
 package bte.pattern.iterator;
 
-public class IteratorContainer<T> implements Iterator {
-    private T [] container;
+public class IteratorContainer<T> implements Iterator<T> {
+    private final T [] container;
     private int position;
 
     public IteratorContainer(T[] container) {

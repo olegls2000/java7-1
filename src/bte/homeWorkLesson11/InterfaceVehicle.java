@@ -1,5 +1,7 @@
 package bte.homeWorkLesson11;
 
+//TODO No need to keep this class
+
 public interface InterfaceVehicle {
     int LOAD_FACTOR = 15;
     int AGE_FACTOR = 8;

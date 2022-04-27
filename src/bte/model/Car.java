@@ -28,7 +28,6 @@ public class Car {
         final var scanner = new Scanner(System.in);
         System.out.println("Pleas input the color (RED, WHITE, BLACK):");
         final var colorFromConsole = scanner.nextLine();
-        final var color = Color.valueOf(colorFromConsole);
         return Color.valueOf(colorFromConsole);
     }
 
@@ -44,7 +43,6 @@ public class Car {
         final var scanner = new Scanner(System.in);
         System.out.println("Pleas input the weight");
         final var weightFromConsole = scanner.nextInt();
-        final var weight = weightFromConsole;
         return weightFromConsole;
     }
 

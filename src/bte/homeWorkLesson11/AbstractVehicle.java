@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 public abstract class AbstractVehicle implements InterfaceVehicle {
     private static final int MAX_AGE = 8;
+    //TODO
     LocalDate releasedDate;
     private int age;
     private int technicalCondition;
@@ -20,7 +21,7 @@ public abstract class AbstractVehicle implements InterfaceVehicle {
         this.technicalCondition = technicalCondition;
         this.carBrand = carBrand;
     }
-
+    //TODO why static? move to CarUtils
     static VehicleBrand getCarBrandFromConsole() {
         final var scanner = new Scanner(System.in);
         System.out.println("Pleas input Car Brand ...");
@@ -74,18 +75,20 @@ public abstract class AbstractVehicle implements InterfaceVehicle {
     private void checkAge(LocalDate releaseDate) throws InvalidCarException {
         final var age = Period.between(releaseDate, LocalDate.now()).getYears();
         if (age > MAX_AGE) {
+            //TODO
             try {
                 throw new InvalidCarException("Car age is greater than Max", "age", age);
             } catch (InvalidCarException e) {
+                //TODO
                 throw new RuntimeException(e);
             }
         }
     }
-
+    //TODO
     private int getAgeInYears(LocalDate date) {
         return Period.between(date, LocalDate.now()).getYears();
     }
-
+    //TODO
     public void printCarInfo() throws Exception {
         if (1 != 2) {
             throw new Exception("From Parent");

@@ -38,7 +38,7 @@ public class AutoSalonApiImpl implements AutoSalonApi {
     }
 
        private void checkParkingPlace(int i) {
-
+           //TODO
          //  if (parkingPlace < 0) {
                 System.out.println("Not enough space");
              //   return -1;
@@ -66,16 +66,19 @@ public class AutoSalonApiImpl implements AutoSalonApi {
 
         @Override
         public void report() {
+            //TODO
             System.out.println(balance);
             System.out.println("Cars in stock " + parking.length);
         }
 
     private int evaluatePrice(AbstractVehicle auto) {
+        //TODO
         // double estValTruck = (.cargo * CARGO) - (auto.releaseDate * AGE) + (auto.techStatus * TECHSTATUS);
         return 0;
     }
 
     private double estimatedValueOfTheCar(AbstractVehicle auto) {
+        //TODO
         //double estValTruck = (auto.capacity * CAPACITY) - (auto.releaseDate * AGE) + (auto.techStatus * TECHSTATUS);
         return 0;
     }

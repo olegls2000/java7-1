@@ -18,7 +18,7 @@ public class Car extends AbstractVehicle implements InterfaceVehicle {
         checkPassengerSeat(passengerSeats);
         this.passengerSeats = passengerSeats;
     }
-
+    //TODO -> utils
     private static int getPassengerSeatsFormConsole() {
         final var scanner = new Scanner(System.in);
         System.out.println("Pleas input quantity of passenger seats ...");
@@ -26,6 +26,7 @@ public class Car extends AbstractVehicle implements InterfaceVehicle {
         return carPassengerSeatsFormConsole;
     }
 
+    //TODO
     public void carPrice() {
         int carPrice =
                this.getPassengerSeats() * PASSENGER_SEAT_FACTOR - this.getAge() * AGE_FACTOR +

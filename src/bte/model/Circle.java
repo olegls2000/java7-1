@@ -8,7 +8,6 @@ import static java.lang.Math.pow;
 public class Circle {
     private int radius;
     private Point center;
-    private Point newCenter;
 
     public int getRadius() {
         return this.radius;
@@ -19,7 +18,7 @@ public class Circle {
     }
 
     public Point getCenter() {
-        return this.center = center;
+        return center;
     }
 
     public void setCenter(Point newPoint) {
@@ -41,15 +40,15 @@ public class Circle {
     }
 
     public void move(int xDelta, int yDelta) {
-        newCenter = new Point(
+        Point newCenter = new Point(
                 (xDelta + this.center.getX()),
                 (yDelta + this.center.getY()));
         System.out.println(
                 "Original center is xDelta:" + this.center.getX() +
                         " yDelta:" + this.center.getY());
         System.out.println(
-                "New center is xDelta:" + this.newCenter.getX() +
-                        " yDelta:" + this.newCenter.getY());
+                "New center is xDelta:" + newCenter.getX() +
+                        " yDelta:" + newCenter.getY());
         System.out.println("Distance = " + distance(center, newCenter));
     }
 

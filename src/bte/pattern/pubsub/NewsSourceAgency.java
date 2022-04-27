@@ -6,7 +6,7 @@ import java.util.List;
 //Publisher
 public class NewsSourceAgency {
 
-    private List<NewsSubscriber> newsSubscribers;
+    private final List<NewsSubscriber> newsSubscribers;
 
     public NewsSourceAgency(List<NewsSubscriber> newsSubscribers) {
         this.newsSubscribers = newsSubscribers;

@@ -3,7 +3,7 @@ package bte.model;
 
 public class Developer extends AbstractEmploy {
 
-    private String programmingLanguage;
+    private final String programmingLanguage;
 
     public Developer(int age, String name, int salary, String programmingLanguage) {
         super(age, name, salary);

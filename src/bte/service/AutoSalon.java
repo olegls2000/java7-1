@@ -6,14 +6,13 @@ import java.util.Scanner;
 
 public class AutoSalon {
     private static final double INTEREST = 1.2;
-    private Car[] parking;
+    private final Car[] parking;
     private double balance;
 
     public AutoSalon() {
         int parkingCapacity = getFromConsoleInitialCapacity(); //input from console
         parking = new Car[parkingCapacity];
-        int initialBalance = getFromConsoleInitialBalance();  //input from console
-        balance = initialBalance;
+        balance = getFromConsoleInitialBalance();
     }
 
     public void buyCar(Car carToBuy) {
@@ -56,13 +55,12 @@ public class AutoSalon {
         return parkingPlace;
     }
 
-    public Car sellCar(int parkingPlace) {
+    public void sellCar(int parkingPlace) {
         // TODO check if parkingPlace is not empty
         // TODO check if parkingPlace is from parking range
 
         balance = balance + parking[parkingPlace].getPrice() * INTEREST;
         parking[parkingPlace] = null;
-        return parking[parkingPlace];
     }
 
     public void report() {
@@ -74,17 +72,13 @@ public class AutoSalon {
     private int getFromConsoleInitialBalance() {
         final var scanner = new Scanner(System.in);
         System.out.println("Pleas input initial balance");
-        final var initialBalanceFromConsole = scanner.nextInt();
-        final var initialBalance = initialBalanceFromConsole;
-        return initialBalance;
+        return scanner.nextInt();
     }
 
     private int getFromConsoleInitialCapacity() {
         final var scanner = new Scanner(System.in);
         System.out.println("Pleas input initial capacity");
-        final var initialCapacityFromConsole = scanner.nextInt();
-        final var initialCapacity = initialCapacityFromConsole;
 
-        return initialCapacity;
+        return scanner.nextInt();
     }
 }

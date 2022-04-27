@@ -1,7 +1,5 @@
 package bte.model;
 
-import static bte.utils.NumberUtils.getRandom;
-
 public class Triangle2D {
 
     private Point a;

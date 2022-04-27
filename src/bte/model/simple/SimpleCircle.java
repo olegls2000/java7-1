@@ -4,7 +4,7 @@ import static bte.utils.CircleUtils.PI;
 import static java.lang.Math.pow;
 
 public class SimpleCircle implements WithArea, WithPerimeter {
-    private int radius;
+    private final int radius;
 
     public SimpleCircle(int radius) {
         this.radius = radius;

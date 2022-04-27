@@ -1,7 +1,5 @@
 package bte.model;
 
-import java.util.Objects;
-
 public class Point {
     public int x;
     public int y;

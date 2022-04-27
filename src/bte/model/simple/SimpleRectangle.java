@@ -1,8 +1,8 @@
 package bte.model.simple;
 
 public class SimpleRectangle implements WithPerimeter, WithArea {
-    private int a;
-    private int b;
+    private final int a;
+    private final int b;
 
     public SimpleRectangle(int a, int b) {
         this.a = a;

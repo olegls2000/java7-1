@@ -2,7 +2,7 @@ package bte.model;
 
 public class Accounter extends AbstractEmploy {
 
-    private String team;
+    private final String team;
 
     public Accounter(int age, String name, int salary, String team) {
         super(age, name, salary);

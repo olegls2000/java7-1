@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class CarFactory {
-    List<AbstractVehicle> constructCar() {
+    List<AbstractVehicle> constructCars() {
         List<AbstractVehicle> parking = new ArrayList<>();
         System.out.println("Select Car type: 1- Truck, 2-Passenger");
         var scanner = new Scanner(System.in);

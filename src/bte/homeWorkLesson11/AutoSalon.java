@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class AutoSalon implements AutoSalonApi{
+public class AutoSalon implements AutoSalonApi {
     private static final int PARKING_SLOTS = 8;
     private static final int INTEREST = 20;
 
@@ -45,19 +45,23 @@ public class AutoSalon implements AutoSalonApi{
 
     @Override
     public <T extends AbstractVehicle> int buyCar(T auto) {
+        //TODO
         return 0;
     }
 
     @Override
     public int sellCar(int i) {
+        //TODO
         return 0;
     }
 
     @Override
     public void report() {
-
+        //TODO
     }
-    private double carPrice(){
-return 0;
+
+    private double carPrice() {
+        //TODO
+        return 0;
     }
 }

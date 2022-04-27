@@ -25,7 +25,7 @@ public class Truck extends AbstractVehicle implements InterfaceVehicle {
         final var truckLoad = scanner.nextInt();
         return truckLoad;
     }
-
+    //TODO
     public int truckPrice() {
         int truckPrice =
                 this.getLoad() * LOAD_FACTOR - this.getAge() * AGE_FACTOR
@@ -40,13 +40,15 @@ public class Truck extends AbstractVehicle implements InterfaceVehicle {
     @Override
     public void printCarInfo() throws Exception {
         System.out.println("Hello from truck");
+
+        //TODO
         if (1 == 2) {
             throw new InvalidCarException(null, null, null);
         } else {
             throw new IllegalAccessException();
         }
     }
-
+    //TODO
     public int excWithFinal() {
         int result = 1;
         try {
