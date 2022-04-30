@@ -1,10 +1,16 @@
 package bte.model.simple;
 
+import static bte.util.NumberUtils.getRandom;
+
 public class SimpleCircle implements WithPerimeter, WithArea {
     private int radius;
 
     public SimpleCircle(int radius) {
         this.radius = radius;
+    }
+
+    public SimpleCircle() {
+        this.radius = getRandom(40, 200);
     }
 
     @Override
@@ -23,18 +29,17 @@ public class SimpleCircle implements WithPerimeter, WithArea {
     }
 
     @Override
-    public boolean equals(Object object) {
-        if (this == object) {
-            return true;
-        }
-/*         if (object.getClass() == SimpleCircle.class) {
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof SimpleCircle)) return false;
 
-        }*/
+        SimpleCircle circle = (SimpleCircle) o;
 
-        if (object instanceof SimpleCircle) {
-            SimpleCircle simpleCircle = (SimpleCircle) object;
-            return simpleCircle.radius == this.radius;
-        }
-        return false;
+        return radius == circle.radius;
+    }
+
+    @Override
+    public int hashCode() {
+        return radius;
     }
 }

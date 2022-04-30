@@ -1,6 +1,7 @@
 package bte.model.simple;
 
-public class SimpleTriangle implements WithPerimeter {
+public class SimpleTriangle implements
+        WithPerimeter, Comparable<SimpleTriangle> {
     private int a;
     private int b;
     private int c;
@@ -51,5 +52,30 @@ public class SimpleTriangle implements WithPerimeter {
             throw new RuntimeException("Triangle with combination of sides: " + a
                     + "," + b + "," + c + " is impossible");
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof SimpleTriangle)) return false;
+
+        SimpleTriangle that = (SimpleTriangle) o;
+
+        if (getA() != that.getA()) return false;
+        if (b != that.b) return false;
+        return c == that.c;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getA();
+        result = 31 * result + b;
+        result = 31 * result + c;
+        return result;
+    }
+
+    @Override
+    public int compareTo(SimpleTriangle o) {
+        return (int) (getPerimeter() - o.getPerimeter());
     }
 }
