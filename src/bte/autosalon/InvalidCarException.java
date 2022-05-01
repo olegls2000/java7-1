@@ -1,11 +1,10 @@
 package bte.autosalon;
 
-public class InvalidCarException extends RuntimeException {
-    //private AbstractCar invalidCar;
+public class InvalidCarException extends Exception {
     private String carPropertyName;
     private Object value;
 
-    public InvalidCarException(String message, AbstractCar invalidCar) {
+    public InvalidCarException(String message, String carPropertyName, Object value) {
         super(message);
         this.carPropertyName = carPropertyName;
         this.value = value;

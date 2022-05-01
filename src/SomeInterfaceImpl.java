@@ -5,10 +5,6 @@ public class SomeInterfaceImpl implements SomeInterface {
     private Result result;
 
     public SomeInterfaceImpl(Result result) {
-        this.result = result;
-    }
-
-    public SomeInterfaceImpl() {
 
     }
 
@@ -23,7 +19,7 @@ public class SomeInterfaceImpl implements SomeInterface {
     }
 
     public static class Result {
-        private int score;
+        private final int score;
         private LocalDateTime time;
 
         public Result(int score, LocalDateTime time) {
