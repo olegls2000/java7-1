@@ -36,4 +36,12 @@ public class Car extends AbstractVehicle {
         checkPassengerSeat(passengerSeats);
         this.passengerSeats = passengerSeats;
     }
+
+    void checkPassengerSeat(int passengerSeatToValidate) {
+        if (passengerSeatToValidate < MIN_PASSENGER_SEAT
+                || passengerSeatToValidate > MAX_PASSENGER_SEAT) {
+            throw new InvalidCarException("Invalid passenger seats, must be higher then: " + MIN_PASSENGER_SEAT +
+                    " and lower then: " + MAX_PASSENGER_SEAT, "passenger seats", passengerSeats);
+        }
+    }
 }

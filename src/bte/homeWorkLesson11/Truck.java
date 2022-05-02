@@ -7,7 +7,7 @@ import static bte.homeWorkLesson11.CarUtils.*;
 
 public class Truck extends AbstractVehicle {
 
-    private int load;
+    private final int load;
 
     public Truck() {
         this(
@@ -19,16 +19,6 @@ public class Truck extends AbstractVehicle {
         super(releasedDate, technicalCondition, carBrand);
         checkLoad(load);
         this.load = load;
-    }
-
-
-
-    //TODO
-    public int truckPrice() {
-        int truckPrice =
-                this.getLoad() * LOAD_FACTOR - this.getAge() * AGE_FACTOR
-                        + this.getTechnicalCondition() * TECHNICAL_CONDITION_FACTOR;
-        return truckPrice;
     }
 
     public int getLoad() {
@@ -47,18 +37,11 @@ public class Truck extends AbstractVehicle {
         }
     }
 
-    //TODO
-    public int excWithFinal() {
-        int result = 1;
-        try {
-            result++;
-            throw new RuntimeException("Random exc");
-        } catch (RuntimeException e) {
-            result++;
-            throw new RuntimeException(e);
-        } finally {
-
-            return result;
+    void checkLoad(int loadToValidate) {
+        if (loadToValidate < MIN_LOAD
+                || loadToValidate > MAX_LOAD) {
+            throw new InvalidCarException("Load is invalid, must be higher then: " + MIN_LOAD +
+                    " and lower then: " + MAX_LOAD, "load", load);
         }
     }
 }

@@ -11,10 +11,10 @@ public abstract class AbstractVehicle {
     protected final int PASSENGER_SEAT_FACTOR = 150;
     private final int MIN_TECHNICAL_CONDITION = 0;
     private final int MAX_TECHNICAL_CONDITION = 100;
-    private final int MIN_LOAD = 200;
-    private final int MAX_LOAD = 1500;
-    private final int MIN_PASSENGER_SEAT = 2;
-    private final int MAX_PASSENGER_SEAT = 8;
+    protected final int MIN_LOAD = 200;
+    protected final int MAX_LOAD = 1500;
+    protected final int MIN_PASSENGER_SEAT = 2;
+    protected final int MAX_PASSENGER_SEAT = 8;
     private static final int MAX_AGE = 8;
     private final LocalDate releasedDate;
     private int age;
@@ -58,13 +58,8 @@ public abstract class AbstractVehicle {
     private void checkAge(LocalDate releaseDate) throws InvalidCarException {
         final var age = Period.between(releaseDate, LocalDate.now()).getYears();
         if (age > MAX_AGE) {
-            //TODO
-            try {
-                throw new InvalidCarException("Car age is greater than Max", "age", age);
-            } catch (InvalidCarException e) {
-                //TODO
-                throw new RuntimeException(e);
-            }
+            throw new InvalidCarException("Capacity is invalid, must be bigger than: " + MIN_PASSENGER_SEAT +
+                    "and less than: " + MAX_PASSENGER_SEAT, "capacity", age);
         }
     }
 
@@ -81,39 +76,13 @@ public abstract class AbstractVehicle {
         }
     }
 
-    private void checkTechnicalCondition(int technicalConditionToValidate) {
+    private void checkTechnicalCondition(int technicalConditionToValidate) throws InvalidCarException {
         if (technicalConditionToValidate < MIN_TECHNICAL_CONDITION
                 || technicalConditionToValidate > MAX_TECHNICAL_CONDITION) {
-            System.out.println("Technical condition is invalid, must be higher then:" + MIN_TECHNICAL_CONDITION +
-                    ", and lower then: " + MAX_TECHNICAL_CONDITION);
-            throw new RuntimeException("Invalid technical condition!");
+            throw new InvalidCarException("Technical condition is invalid, must be higher then: " + MIN_TECHNICAL_CONDITION +
+                    " and lower then: " + MAX_TECHNICAL_CONDITION, "technical condition", technicalCondition);
         }
     }
 
-    void checkPassengerSeat(int passengerSeatToValidate) {
-        if (passengerSeatToValidate < MIN_PASSENGER_SEAT
-                || passengerSeatToValidate > MAX_PASSENGER_SEAT) {
-            System.out.println("Passenger seats is invalid, must be higher then:" + MIN_PASSENGER_SEAT
-                    + ", and lower then" + MAX_PASSENGER_SEAT);
-            try {
-                throw new RuntimeException("Invalid passenger seats!");
-            } catch (InvalidCarException e) {
-                throw new InvalidCarException("Invalid passenger seats", e.getCarPropertyName(), MIN_PASSENGER_SEAT
-                        + " " + MAX_PASSENGER_SEAT);
-            }
-        }
-    }
 
-    void checkLoad(int loadToValidate) {
-        if (loadToValidate < MIN_LOAD
-                || loadToValidate > MAX_LOAD) {
-            try {
-                throw new Exception("Invalid load");
-            } catch (InvalidCarException e) {
-                throw new InvalidCarException("Invalid load", e.getCarPropertyName(), MIN_LOAD + " " + MAX_LOAD);
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
-        }
-    }
 }
