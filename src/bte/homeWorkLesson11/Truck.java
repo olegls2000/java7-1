@@ -3,7 +3,9 @@ package bte.homeWorkLesson11;
 import java.time.LocalDate;
 import java.util.Scanner;
 
-public class Truck extends AbstractVehicle implements InterfaceVehicle {
+import static bte.homeWorkLesson11.CarUtils.*;
+
+public class Truck extends AbstractVehicle {
 
     private int load;
 
@@ -19,12 +21,8 @@ public class Truck extends AbstractVehicle implements InterfaceVehicle {
         this.load = load;
     }
 
-    private static int getLoadFormConsole() {
-        final var scanner = new Scanner(System.in);
-        System.out.println("Please input truck load ...");
-        final var truckLoad = scanner.nextInt();
-        return truckLoad;
-    }
+
+
     //TODO
     public int truckPrice() {
         int truckPrice =
@@ -48,6 +46,7 @@ public class Truck extends AbstractVehicle implements InterfaceVehicle {
             throw new IllegalAccessException();
         }
     }
+
     //TODO
     public int excWithFinal() {
         int result = 1;

@@ -3,7 +3,9 @@ package bte.homeWorkLesson11;
 import java.time.LocalDate;
 import java.util.Scanner;
 
-public class Car extends AbstractVehicle implements InterfaceVehicle {
+import static bte.homeWorkLesson11.CarUtils.*;
+
+public class Car extends AbstractVehicle {
 
     private int passengerSeats;
 
@@ -17,13 +19,6 @@ public class Car extends AbstractVehicle implements InterfaceVehicle {
         super(releasedDate, technicalCondition, carBrand);
         checkPassengerSeat(passengerSeats);
         this.passengerSeats = passengerSeats;
-    }
-    //TODO -> utils
-    private static int getPassengerSeatsFormConsole() {
-        final var scanner = new Scanner(System.in);
-        System.out.println("Pleas input quantity of passenger seats ...");
-        final var carPassengerSeatsFormConsole = scanner.nextInt();
-        return carPassengerSeatsFormConsole;
     }
 
     //TODO

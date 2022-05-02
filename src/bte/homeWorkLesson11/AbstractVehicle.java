@@ -2,13 +2,21 @@ package bte.homeWorkLesson11;
 
 import java.time.LocalDate;
 import java.time.Period;
-import java.time.format.DateTimeFormatter;
-import java.util.Scanner;
 
-public abstract class AbstractVehicle implements InterfaceVehicle {
+public abstract class AbstractVehicle {
+
+    final int LOAD_FACTOR = 15;
+    protected final int AGE_FACTOR = 8;
+    protected final int TECHNICAL_CONDITION_FACTOR = 100;
+    protected final int PASSENGER_SEAT_FACTOR = 150;
+    private final int MIN_TECHNICAL_CONDITION = 0;
+    private final int MAX_TECHNICAL_CONDITION = 100;
+    private final int MIN_LOAD = 200;
+    private final int MAX_LOAD = 1500;
+    private final int MIN_PASSENGER_SEAT = 2;
+    private final int MAX_PASSENGER_SEAT = 8;
     private static final int MAX_AGE = 8;
-    //TODO
-    LocalDate releasedDate;
+    private final LocalDate releasedDate;
     private int age;
     private int technicalCondition;
     private VehicleBrand carBrand;
@@ -20,31 +28,6 @@ public abstract class AbstractVehicle implements InterfaceVehicle {
         this.releasedDate = releasedDate;
         this.technicalCondition = technicalCondition;
         this.carBrand = carBrand;
-    }
-    //TODO why static? move to CarUtils
-    static VehicleBrand getCarBrandFromConsole() {
-        final var scanner = new Scanner(System.in);
-        System.out.println("Pleas input Car Brand ...");
-        final var carBrandFromConsole = scanner.nextLine();
-        final var carBrand = VehicleBrand.valueOf(carBrandFromConsole);
-        return carBrand;
-    }
-
-    static LocalDate getReleaseDateFromConsole() {
-        final var scanner = new Scanner(System.in);
-        System.out.println("Please input car release date ...");
-        final var ageFromConsole = scanner.nextLine();
-        DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("d.M.yyyy");
-        LocalDate carIssueDate = LocalDate.parse(ageFromConsole, dateFormat);
-        return carIssueDate;
-    }
-
-    static int getTechnicalConditionFromConsole() {
-        final var scanner = new Scanner(System.in);
-        System.out.println("Please input car technical condition ...");
-        final var carTechnicalConditionFromConsole = scanner.nextInt();
-        final var technicalCondition = carTechnicalConditionFromConsole;
-        return technicalCondition;
     }
 
     public int getAge() {
@@ -84,10 +67,12 @@ public abstract class AbstractVehicle implements InterfaceVehicle {
             }
         }
     }
+
     //TODO
     private int getAgeInYears(LocalDate date) {
         return Period.between(date, LocalDate.now()).getYears();
     }
+
     //TODO
     public void printCarInfo() throws Exception {
         if (1 != 2) {
@@ -96,4 +81,39 @@ public abstract class AbstractVehicle implements InterfaceVehicle {
         }
     }
 
+    private void checkTechnicalCondition(int technicalConditionToValidate) {
+        if (technicalConditionToValidate < MIN_TECHNICAL_CONDITION
+                || technicalConditionToValidate > MAX_TECHNICAL_CONDITION) {
+            System.out.println("Technical condition is invalid, must be higher then:" + MIN_TECHNICAL_CONDITION +
+                    ", and lower then: " + MAX_TECHNICAL_CONDITION);
+            throw new RuntimeException("Invalid technical condition!");
+        }
+    }
+
+    void checkPassengerSeat(int passengerSeatToValidate) {
+        if (passengerSeatToValidate < MIN_PASSENGER_SEAT
+                || passengerSeatToValidate > MAX_PASSENGER_SEAT) {
+            System.out.println("Passenger seats is invalid, must be higher then:" + MIN_PASSENGER_SEAT
+                    + ", and lower then" + MAX_PASSENGER_SEAT);
+            try {
+                throw new RuntimeException("Invalid passenger seats!");
+            } catch (InvalidCarException e) {
+                throw new InvalidCarException("Invalid passenger seats", e.getCarPropertyName(), MIN_PASSENGER_SEAT
+                        + " " + MAX_PASSENGER_SEAT);
+            }
+        }
+    }
+
+    void checkLoad(int loadToValidate) {
+        if (loadToValidate < MIN_LOAD
+                || loadToValidate > MAX_LOAD) {
+            try {
+                throw new Exception("Invalid load");
+            } catch (InvalidCarException e) {
+                throw new InvalidCarException("Invalid load", e.getCarPropertyName(), MIN_LOAD + " " + MAX_LOAD);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
 }

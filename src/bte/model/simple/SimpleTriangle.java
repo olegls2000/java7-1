@@ -1,6 +1,8 @@
 package bte.model.simple;
 
-public class SimpleTriangle implements WithArea, WithPerimeter {
+import java.util.Objects;
+
+public class SimpleTriangle implements WithArea, WithPerimeter, Comparable<SimpleTriangle> {
     private int a;
     private int b;
     private int c;
@@ -81,5 +83,8 @@ public class SimpleTriangle implements WithArea, WithPerimeter {
         return c;
     }
 
-
+    @Override
+    public int compareTo(SimpleTriangle o) {
+        return (int) (getPerimeter() - o.getPerimeter());
+    }
 }
