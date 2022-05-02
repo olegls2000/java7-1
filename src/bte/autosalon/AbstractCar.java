@@ -10,8 +10,10 @@ public abstract class AbstractCar {
     private static final int MIN_TECH_CONDITION = 1;
     private static final int MAX_TECH_CONDITION = 10;
     private static final int MAX_AGE = 10;
-    private int techStatus;
-    private LocalDate releaseDate;
+    protected int techStatus;
+    protected int cargo;
+    protected int capacity;
+    protected LocalDate releaseDate;
     private CarManufacturer manufacturer;
 
     public AbstractCar(int techStatus, LocalDate releaseDate, CarManufacturer manufacturer) throws InvalidCarExeption {
@@ -30,13 +32,12 @@ public abstract class AbstractCar {
     }
 
 
-    private void checkTechStatus(int techStatus) {
+    private void checkTechStatus(int techStatus) throws InvalidCarExeption {
         if (techStatus > MAX_TECH_CONDITION || techStatus < MIN_TECH_CONDITION) {
-            System.out.println("TechCondition is invalid, must be bigger than: " + MIN_TECH_CONDITION +
-                    "and less than: " + MAX_TECH_CONDITION);
-            throw new RuntimeException("Unacceptable conditions");
-        }
-    }
+            throw new InvalidCarExeption("TechCondition is invalid, must be bigger than: " + MIN_TECH_CONDITION +
+                    "and less than: " + MAX_TECH_CONDITION, "techStatus",techStatus);
+
+    }}
 
 
     private void checkAge(LocalDate releaseDate) throws InvalidCarExeption{

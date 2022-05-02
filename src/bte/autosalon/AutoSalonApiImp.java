@@ -1,6 +1,6 @@
 package bte.autosalon;
 
-import bte.pattern.iterator.Iterator;
+import java.util.Arrays;
 
 public class AutoSalonApiImp implements AutoSalonApi {
 
@@ -16,17 +16,16 @@ public class AutoSalonApiImp implements AutoSalonApi {
 
     AutoSalonApiImp salon = new AutoSalonApiImp();
 
+
     @Override
-    public int buyCar(AbstractCar auto) {
+    public int buyCar(AbstractCar auto) throws InvalidCarExeption {
         final int carPrice = evaluatePrice(auto);
         final int parkingPlace = getFreeParkingPlace();
         if (balance < carPrice) {
-            System.out.println("Not enough money");
-            return -1;
+            throw new InvalidCarExeption("Not enough money", "balance", balance);
         }
-        if (parkingPlace >= 0) {
-            System.out.println("Not enough space");
-            return -1;
+        if (parkingPlace == 0) {
+            throw new InvalidCarExeption("Not enough space", "space", parking);
         }
 
         parking[parkingPlace] = auto;
@@ -36,39 +35,48 @@ public class AutoSalonApiImp implements AutoSalonApi {
 
 
     @Override
-    public int sellCar(int i) {
+    public int sellCar(int i) throws InvalidCarExeption {
         checkParkingPlace(i);
         final var car = parking[i];
-        int autoPrice = (int) estimatedValueOfTheCar(car);
+        int autoPrice = evaluatePrice(car);
         parking[i] = null;
         var salePrice = autoPrice * 1.2;
         balance += salePrice;
         return (int) salePrice;
     }
 
-    private void checkParkingPlace(int i) {
-        //i >= 0, i < parking.length, car != null;
-    }
-
     @Override
     public void report() {
         System.out.println(balance);
-        System.out.println("Cars in stock ");
-
+        System.out.println("Cars in stock " + parking);
     }
 
-
-    private int evaluatePrice(AbstractCar auto) {
-        // double estValTruck = (auto.cargo * CARGO) - (auto.releaseDate * AGE) + (auto.techStatus * TECHSTATUS);
-        return 0;
+    private int checkParkingPlace(int i) throws InvalidCarExeption {
+        if (i >= parking.length || i < 0) {
+            throw new InvalidCarExeption("There is no car", "parking", parking);
+        } else {
+            return Arrays.asList(parking).indexOf(i);
+        }
     }
 
     private int getFreeParkingPlace() {
-        return 0;
+        int freePlace = -1;
+        for (int i = 0; i < parking.length; i++) {
+            if (parking[i] == null) {
+                freePlace = i;
+                break;
+            }
+        }
+        return freePlace;
     }
 
-    private double estimatedValueOfTheCar(AbstractCar auto) {
-        //double estValTruck = (auto.capacity * CAPACITY) - (auto.releaseDate * AGE) + (auto.techStatus * TECHSTATUS);
-        return 0;
+    private int evaluatePrice(AbstractCar car) {
+        int price = 0;
+        if (car instanceof Truck) {
+            price = (car.cargo * CARGO) - (car.releaseDate.getYear() * AGE) + (car.techStatus * TECHSTATUS);
+        } else {
+            price = (car.capacity * CAPACITY) - (car.releaseDate.getYear() * AGE) + (car.techStatus * TECHSTATUS);
+        }
+        return price;
     }
 }

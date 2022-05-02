@@ -15,11 +15,9 @@ public class Passenger extends AbstractCar{
         this.capacity = capacity;
     }
 
-    private void checkCapacity (int capacityPeople) {
-        if (capacityPeople > MAX_CAPACITY|| capacityPeople < MIN_CAPACITY) {
-            System.out.println("Capacity is invalid, must be bigger than: " + MIN_CAPACITY +
-                    "and less than: " + MAX_CAPACITY);
-            throw new RuntimeException("Unacceptable conditions");
-        }
+    private void checkCapacity (int capacity) throws InvalidCarExeption {
+        if (capacity > MAX_CAPACITY|| capacity < MIN_CAPACITY) {
+            throw new InvalidCarExeption("Capacity is invalid, must be bigger than: " + MIN_CAPACITY +
+                    "and less than: " + MAX_CAPACITY, "capacity",capacity);
     }
-}
+}}

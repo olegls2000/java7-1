@@ -40,11 +40,10 @@ public class Truck extends AbstractCar {
         return result;
     }
 
-    private void checkCargo(int cargo) {
+    private void checkCargo(int cargo) throws InvalidCarExeption {
         if (cargo > MAX_CARGO || cargo < MIN_CARGO) {
-            System.out.println("Cargo is invalid, must be bigger than: " + MIN_CARGO +
-                    "and less than: " + MAX_CARGO);
-            throw new RuntimeException("Unacceptable conditions");
+            throw new InvalidCarExeption("Cargo is invalid, must be bigger than: " + MIN_CARGO +
+                    "and less than: " + MAX_CARGO, "cargo",cargo);
         }
     }
 }
