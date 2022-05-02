@@ -48,8 +48,8 @@ public class Lesson11 {
 
         Point[] points =new Point[3];
         points[0] = new Point(1,1);
-        points[0] = new Point(2,2);
-        points[0] = new Point(3,3);
+        points[1] = new Point(2,2);
+        points[2] = new Point(3,3);
 
         ArrayUtils.printOutArray(points);
         SimpleCircle circle = new SimpleCircle(5);

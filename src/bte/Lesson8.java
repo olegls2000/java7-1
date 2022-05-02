@@ -44,7 +44,7 @@ public class Lesson8 {
         SimpleRectangle rec2 = new SimpleRectangle(6, 3);
         SimpleRectangle[] rectangles = {rec1, rec2};
         Company comp = new Company(developers, accountants, administrators);
-        comp.findNameWithTheBiggestSalary();
+        System.out.println(comp.findNameWithTheBiggestSalary());
 
 
         ShapeContainer containerOfShapes = new ShapeContainer();
