@@ -65,4 +65,12 @@ public class SimpleTriangle implements WithPerimeter {
                     + "," + b + "," + c + " is impossible");
         }
     }
+
+    @Override
+    public int hashCode() {
+        int result = a;
+        result = 31 * result + b;
+        result = 31 * result + c;
+        return result;
+    }
 }
