@@ -5,6 +5,10 @@ import static bte.util.NumberUtils.getRandom;
 public class SimpleCircle implements WithPerimeter, WithArea {
     private int radius;
 
+    public int getRadius() {
+        return radius;
+    }
+
     public SimpleCircle(int radius) {
         this.radius = radius;
     }

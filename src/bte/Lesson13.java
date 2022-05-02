@@ -95,7 +95,6 @@ public class Lesson13 {
         triangleTreeSetSideA.add(new SimpleTriangle(2,3,3));
         System.out.println(triangleTreeSetSideA);
 
-
     }
 
     private static Set<SimpleCircle> generateCircleSet(int count) {

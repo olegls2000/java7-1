@@ -4,6 +4,9 @@ import bte.model.Circle;
 import bte.model.Human;
 import bte.util.CircleUtils;
 
+import java.util.ArrayList;
+import java.util.Map;
+
 public class Lesson5 {
     public static void main(String[] args) {
         int i = 7;
@@ -35,8 +38,10 @@ public class Lesson5 {
 
         Human human4 = new Human(38, "Fill");
 
-        Circle[] circles = CircleUtils.getCircles(6);
-        Circle maxAreaCircle = CircleUtils.getCirceWithMaxArea(circles);
+        Map<Integer, Circle> circles = CircleUtils.getCircles(6);
+        Circle maxAreaCircle = CircleUtils.getCirceWithMaxArea(
+                new ArrayList<>(circles.values())
+        );
         System.out.println("bte.Circle with the biggest area: "
                 + maxAreaCircle.getArea() + " with radius: "
                 + maxAreaCircle.getRadius());
