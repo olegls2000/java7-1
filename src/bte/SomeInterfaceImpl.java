@@ -16,8 +16,8 @@ public class SomeInterfaceImpl implements SomeInterface {
     }
 
     public  static class Result {
-        private int score;
-        private LocalDateTime time;
+        private final int score;
+        private final LocalDateTime time;
 
         public Result(int score, LocalDateTime time) {
             this.score = score;

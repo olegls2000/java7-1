@@ -9,22 +9,20 @@ public class Circle {
         System.out.println("In static initialization block");
     }
 
-    public int getRadius() {
-        return radius;
-    }
-
-    public Point getCenter() {
-        return center;
-    }
-
-    private int radius;
+    final private int radius;
+    private Point center= new Point(0,0);
 
     public Circle(int radius, Point center) {
         this.radius = radius;
         this.center = center;
     }
 
-    public Point center= new Point(0,0);
+    public int getRadius() {
+        return radius;
+    }
+    public Point getCenter() {
+        return center;
+    }
 
     public Circle(int radius) {
         System.out.println("In constructor");

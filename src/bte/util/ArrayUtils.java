@@ -15,7 +15,7 @@ public final class ArrayUtils {
 
             System.out.println("] ");
         }
-        System.out.println("");
+        System.out.println();
     }
 
     public static <T> T printAndReturnFigureWithPerimeter(T figure) {

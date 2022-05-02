@@ -17,13 +17,13 @@ public class Lesson6 {
         Triangle triangle = new Triangle(a, b, c);
         System.out.println("Perimeter " + triangle.getPerimeter(a, b, c));
         WeekDay tuesday = WeekDay.TUESDAY;
-        boolean isHoliday = tuesday.isHoliday;
-        String name = tuesday.name;
+        boolean isHoliday = tuesday.isHoliday();
+        String name = tuesday.getName();
         int ordinal = tuesday.ordinal();
         System.out.println(ordinal);
         WeekDay[] wd = WeekDay.values();
         WeekDay randomDay = wd[NumberUtils.getRandomValue(0, wd.length)];
-        System.out.println(randomDay.name);
+        System.out.println(randomDay.getName());
 
      /*   Scanner scanner = new Scanner(System.in);
         String input = scanner.nextLine();

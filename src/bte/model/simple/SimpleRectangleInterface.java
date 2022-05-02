@@ -3,8 +3,8 @@ package bte.model.simple;
 import bte.service.TwoInterfaces;
 
 public class SimpleRectangleInterface implements TwoInterfaces {
-    private int a;
-    private int b;
+    private final int a;
+    private final int b;
 
     public SimpleRectangleInterface(int a, int b) {
         this.a = a;

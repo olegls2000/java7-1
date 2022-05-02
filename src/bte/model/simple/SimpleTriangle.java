@@ -1,9 +1,11 @@
 package bte.model.simple;
 
-public class SimpleTriangle  extends AbstractShape{
-    int a;
-    int b;
-    int c;
+import java.util.Objects;
+
+public class SimpleTriangle  extends AbstractShape implements Comparable<SimpleTriangle>{
+    private int a;
+    private int b;
+    private int c;
 
     public int getA() {
         return a;
@@ -59,5 +61,36 @@ public class SimpleTriangle  extends AbstractShape{
     @Override
     public double getSquare() {
         return (a*b)/2.0;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+
+        if (this == o) return true;
+        if (o instanceof SimpleTriangle) {
+            SimpleTriangle that = (SimpleTriangle) o;
+            return a == that.a && b == that.b && c == that.c;
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(a, b, c);
+    }
+
+
+    @Override
+    public int compareTo(SimpleTriangle o) {
+        return (int)(getPerimeter()-o.getPerimeter());
+    }
+
+    @Override
+    public String toString() {
+        return "SimpleTriangle with sides {" +
+                "a=" + a +
+                ", b=" + b +
+                ", c=" + c +
+                '}';
     }
 }

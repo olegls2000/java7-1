@@ -1,16 +1,20 @@
 package bte.model.simple;
 
 import bte.service.TwoInterfaces;
+import bte.util.NumberUtils;
 
 import java.util.Objects;
 
 public class SimpleCircleInterface implements TwoInterfaces {
+    private final int radius;
+
     public SimpleCircleInterface(int radius) {
         this.radius = radius;
     }
 
-    private int radius;
-
+    public SimpleCircleInterface () {
+        this.radius= NumberUtils.getRandomValue(40,200);
+    }
     @Override
     public double getPerimeter() {
         return 2*Math.PI*radius;
@@ -39,7 +43,7 @@ public class SimpleCircleInterface implements TwoInterfaces {
         if (this == o) return true;
         if (o instanceof SimpleCircleInterface) {
             SimpleCircleInterface that = (SimpleCircleInterface) o;
-        return radius == that.radius;
+            return radius == that.radius;
     }
     return false;
     }

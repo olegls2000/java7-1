@@ -58,7 +58,7 @@ public class Main {
         double distance = getDistanceBetweenCenters(new Circle(3, new Point(1, 1)), new Circle(3, new Point(2, 2)));
         Circle circleNearest = CircleUtils.closerToCenter(circlesLens);
         System.out.println("The closest to the center circle with radius " + circleNearest.getRadius()
-                + " and circle center (" + circleNearest.center.getX() + "," + circleNearest.center.getY() + ")");
+                + " and circle center (" + circleNearest.getCenter().getX() + "," + circleNearest.getCenter().getY() + ")");
 
 
     }

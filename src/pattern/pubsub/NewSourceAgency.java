@@ -3,7 +3,7 @@ package pattern.pubsub;
 import java.util.List;
 
 public class NewSourceAgency {
-    private List<NewsSubscriber> newsSubscriber;
+    private final List<NewsSubscriber> newsSubscriber;
 
     public NewSourceAgency(List<NewsSubscriber> newsSubscriber) {
         this.newsSubscriber = newsSubscriber;

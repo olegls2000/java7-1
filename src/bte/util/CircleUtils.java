@@ -16,7 +16,7 @@ public class CircleUtils {
     }
 
     public static double getDistanceBetweenCenters(Circle circle1, Circle circle2) {
-        return getDistance(circle1.center, circle2.center);
+        return getDistance(circle1.getCenter(), circle2.getCenter());
     }
 
     public static Circle closerToCenter(Circle[] circles) {
@@ -25,7 +25,7 @@ public class CircleUtils {
         double min = 0, current;
         for (int i = 0; i < circles.length; i++) {
 
-            current = getDistance(circles[i].center, coordinateCenter);
+            current = getDistance(circles[i].getCenter(), coordinateCenter);
             if (i == 0 || current < min) {
                 min = current;
                 iMin = i;

@@ -1,8 +1,6 @@
 package bte.autosalonadvanced.model;
 
 import java.time.LocalDate;
-import java.time.Period;
-import java.time.temporal.ChronoUnit;
 
 public class Truck extends Car {
     private static final int COEFFICIENT_CARGO = 15;
@@ -19,7 +17,7 @@ public class Truck extends Car {
         else
             throw new InvalidCarException("Load capacity must be between "
                     + MIN_LOAD_CAPACITY + " and " + MAX_LOAD_CAPACITY + ", was " + loadCapacity,
-                    "Load capasity", this);
+                    "Load capacity", this);
 
     }
 

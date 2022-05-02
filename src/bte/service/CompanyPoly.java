@@ -7,7 +7,7 @@ import bte.model.Developer;
 
 public class CompanyPoly {
 
-    AbstractEmployee[] employees;
+    private final AbstractEmployee[] employees;
 
     public CompanyPoly(AbstractEmployee[] employees) {
         this.employees = employees;

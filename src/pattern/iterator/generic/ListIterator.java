@@ -3,7 +3,7 @@ package pattern.iterator.generic;
 import java.util.List;
 
 public class ListIterator<T> implements Iterator<T> {
-    private List<T> items;
+    private final List<T> items;
     private int position = 0;
 
     public ListIterator(List<T> items) {
@@ -12,9 +12,7 @@ public class ListIterator<T> implements Iterator<T> {
 
     @Override
     public boolean hasNext() {
-        if (position >= items.size() || items.get(position)==null)
-            return false;
-        return true;
+        return position < items.size() && items.get(position) != null;
     }
 
     @Override

@@ -7,7 +7,7 @@ public class PassengerCar extends Car {
     private final static int MAX_NUMBER_OF_SEATS = 8;
 
 
-    private int numberOfSeats;
+    private final int numberOfSeats;
 
     public PassengerCar(final int technicalCondition, final Manufacturers manufacturer,
                         final int numberOfSeats) throws InvalidCarException {

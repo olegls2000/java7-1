@@ -3,7 +3,7 @@ package pattern.iterator.generic;
 import java.util.List;
 
 public class ListOfIntegers<T> implements IterableCollection<T> {
-    private List<T> array;
+    private final List<T> array;
 
     public ListOfIntegers(List<T> array) {
         this.array = array;
@@ -11,7 +11,7 @@ public class ListOfIntegers<T> implements IterableCollection<T> {
 
     @Override
     public Iterator<T> createIterator() {
-        return new ListIterator<T>(array);
+        return new ListIterator<>(array);
     }
 
 }

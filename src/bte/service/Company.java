@@ -5,9 +5,9 @@ import bte.model.Administrator;
 import bte.model.Developer;
 
 public class Company {
-    Developer[] developers;
-    Accountant[] accountants;
-    Administrator[] administrators;
+    private final Developer[] developers;
+    private final Accountant[] accountants;
+    private final Administrator[] administrators;
 
     public Company(Developer[] developers, Accountant[] accountants, Administrator[] administrators) {
         this.developers = developers;

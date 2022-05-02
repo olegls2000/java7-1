@@ -1,10 +1,7 @@
 package bte.model;
 
 public class Administrator extends AbstractEmployee {
-
-
         private String department;
-
 
         public void setDepartment (String department){
         this.department = department;

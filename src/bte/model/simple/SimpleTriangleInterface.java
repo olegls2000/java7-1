@@ -3,9 +3,9 @@ package bte.model.simple;
 import bte.service.TwoInterfaces;
 
 public class SimpleTriangleInterface implements TwoInterfaces {
-    int a;
-    int b;
-    int c;
+    private int a;
+    private int b;
+    private int c;
 
     public int getA() {
         return a;
@@ -74,7 +74,7 @@ public class SimpleTriangleInterface implements TwoInterfaces {
         if (this == o) return true;
         if (o instanceof SimpleTriangleInterface) {
             SimpleTriangleInterface that = (SimpleTriangleInterface) o;
-        return a == that.a && b == that.b && c == that.c;
+            return a == that.a && b == that.b && c == that.c;
     }
         return false;
     }

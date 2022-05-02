@@ -1,9 +1,7 @@
 package bte.autosalonadvanced.service;
 
-import bte.autosalonadvanced.model.Truck;
-
 public class InvalidAutoSalonStateException extends Exception {
-    private String message;
+    private final String message;
     private Object value;
 
     public InvalidAutoSalonStateException(String message, Object value) {
@@ -18,11 +16,6 @@ public class InvalidAutoSalonStateException extends Exception {
 
     @Override
     public String toString() {
-        String result;
-        if (value instanceof Truck) {
-            result = "Truck: " + value.toString();
-        }
-
         return "InvalidAutoSalonStateException: {\n" +
                 "Cause = '" + message + '\'' +
                 (value!=null?",":"") + (value == null ? "\n" : value) +

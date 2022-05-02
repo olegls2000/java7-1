@@ -1,12 +1,17 @@
 package bte.model.simple;
 
+import bte.util.NumberUtils;
+
 public class SimpleCircle extends AbstractShape {
+    private final int radius;
+
     public SimpleCircle(int radius) {
         this.radius = radius;
     }
 
-    private int radius;
-
+    public SimpleCircle () {
+        this.radius= NumberUtils.getRandomValue(40,40000);
+    }
     @Override
     public double getPerimeter() {
         return 2*Math.PI*radius;
@@ -23,4 +28,5 @@ public class SimpleCircle extends AbstractShape {
                 "radius=" + radius +
                 '}';
     }
+
 }

@@ -2,8 +2,8 @@ package pattern.pubsub;
 
 public class News {
 
-    private String headline;
-    private String content;
+    private final String headline;
+    private final String content;
 
     public News(String headline, String content) {
         this.headline = headline;
