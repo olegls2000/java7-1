@@ -16,7 +16,7 @@ public class Car {
         this(getPriceFromConsole(), getWeightFromConsole(), getColorFromConsole());
     }
 
-    private Car(final int price, final int weight, final Color color) {
+    public Car(final int price, final int weight, final Color color) {
         checkWeight(weight);
         checkPrice(price);
         this.price = price;

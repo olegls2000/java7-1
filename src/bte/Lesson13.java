@@ -67,7 +67,6 @@ public class Lesson13 {
         triangleTreeSet.add(new SimpleTriangle(3,3,3));
         triangleTreeSet.add(new SimpleTriangle(4,4,4));
         triangleTreeSet.add(new SimpleTriangle(3,3,3));
-
         SimpleTriangleSideAComparator sideAComparator = new SimpleTriangleSideAComparator();
         Set<SimpleTriangle> triangleTreeSetSideA = new TreeSet<>(sideAComparator);
         triangleTreeSetSideA.add(new SimpleTriangle(3,3,3));

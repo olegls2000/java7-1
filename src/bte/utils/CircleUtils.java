@@ -3,6 +3,10 @@ package bte.utils;
 import bte.model.Circle;
 import bte.model.Point;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+
 import static bte.utils.NumberUtils.getRandom;
 import static bte.utils.PointUtils.getDistance;
 
@@ -13,7 +17,7 @@ public class CircleUtils {
     public static Circle[] getCircle(int count) {
         Circle[] result = new Circle[count];
         for (int i = 0; i < count; i++) {
-            Point point = new Point(getRandom(0,10), getRandom(0,10));
+            Point point = new Point(getRandom(0, 10), getRandom(0, 10));
             result[i] = new Circle(getRandom(3, 70), point);
         }
         return result;
@@ -44,5 +48,16 @@ public class CircleUtils {
             }
         }
         return closest;
+    }
+
+    public static Map<Integer, Circle> getCircleMap(int count) {
+        Map<Integer, Circle> result = new HashMap<>();
+        for (int i = 0; i < count; i++) {
+            final int radius = getRandom(3, 70);
+            Point point = new Point(getRandom(0, 10), getRandom(0, 10));
+            Circle circle = new Circle(radius, point);
+            result.put(radius, circle);
+        }
+        return result;
     }
 }

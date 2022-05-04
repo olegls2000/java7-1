@@ -30,6 +30,6 @@ public class Lesson12 {
                 e.printStackTrace();
             }
         }
-        System.out.println(car1.excWithFinal());
+       // System.out.println(car1.excWithFinal());
     }
 }
