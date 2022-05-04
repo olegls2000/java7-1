@@ -1,10 +1,15 @@
 package bte.model;
 
+import bte.annotation.BtaString;
+
 //Super Class
 //Parent Class
-public abstract class AbstractEmployee  {
+public abstract class AbstractEmployee {
     private int age;
+
+    @BtaString(startWith = "A")
     private String name;
+
     private int salary;
 
     public AbstractEmployee(int age, String name, int salary) {

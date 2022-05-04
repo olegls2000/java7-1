@@ -1,5 +1,6 @@
 package bte.model;
 
+import bte.annotation.BtaNumber;
 import bte.util.WeekDay;
 
 import java.util.Scanner;
@@ -10,8 +11,12 @@ public class Car {
     private static final int MIN_PRICE = 10_000;
     private static final int MAX_PRICE = 100_000;
 
+    @BtaNumber(min = MIN_PRICE, max = MAX_PRICE)
     private int price;
+
+    @BtaNumber(min = MIN_WEIGHT, max = MAX_WEIGHT)
     private int weight;
+
     private Color color;
 
     public Car() {
@@ -22,8 +27,6 @@ public class Car {
     }
 
     public Car(final int price, final int weight, final Color color) {
-        checkWeight(weight);
-        checkPrice(price);
         this.price = price;
         this.weight = weight;
         this.color = color;
@@ -36,28 +39,12 @@ public class Car {
         return Color.valueOf(colorFromConsole);
     }
 
-    private void checkWeight(int weightToValidate) {
-        if (weightToValidate > MAX_WEIGHT || weightToValidate < MIN_WEIGHT) {
-            System.out.println("Weight is invalid, must be bigger than: " + MIN_WEIGHT +
-                    "and less than: " + MAX_WEIGHT);
-            throw new RuntimeException("Invalid weight!");
-        }
-    }
-
-    private void checkPrice(int priceToValidate) {
-        if (priceToValidate > MAX_PRICE || priceToValidate < MIN_PRICE) {
-            System.out.println("Price is invalid, must be bigger than: " + MIN_PRICE +
-                    "and less than: " + MAX_PRICE);
-            throw new RuntimeException("Invalid price!");
-        }
-    }
 
     public int getPrice() {
         return price;
     }
 
     public void setPrice(int price) {
-        checkPrice(price);
         this.price = price;
     }
 
@@ -66,7 +53,6 @@ public class Car {
     }
 
     public void setWeight(int weight) {
-        checkWeight(weight);
         this.weight = weight;
     }
 

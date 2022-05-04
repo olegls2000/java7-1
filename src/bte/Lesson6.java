@@ -24,8 +24,8 @@ public class Lesson6 {
         final int ARRAY_INDEX = 5;
 
         final Point POINT = new Point(4, 4);
-        POINT.x = 9;
-        POINT.y = 9;
+        /*POINT.x = 9;
+        POINT.y = 9;*/
         // POINT = new bte.model.Point(7,7);
         int arrayIndex = 5;
         mutatePrimitive(arrayIndex);
@@ -70,7 +70,7 @@ public class Lesson6 {
     }
 
     public static void mutateObject(Point p) {
-        p.x = 8;
+        //p.x = 8;
         p = new Point(5, 5);
     }
 }
