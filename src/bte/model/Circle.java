@@ -26,7 +26,7 @@ public class Circle {
        this.center.x = this.center.x +xDelta;
         this.center.y = this.center.y +xDelta;
     }
-    public Circle(int radius){
+    public Circle(int radius, Point center){
         System.out.println("Constructor initialisation block");
         this.radius = radius;
     }

@@ -3,14 +3,20 @@ package bte.model;
 import bte.util.CircleUtils;
 import bte.util.NumberUtils;
 
-public class CircleAR {
-    public static void main(String[] args){
-      Circle[] circles = CircleUtils.getCircle(6);
-      Circle maxAreaCircle = CircleUtils.getCircleWithMaxRadius(circles);
-        System.out.println("Circle with the biggest area: "
-        + maxAreaCircle.getArea() + " with radius: "
-        + maxAreaCircle.getRadius);
+import java.util.ArrayList;
+import java.util.Map;
 
+public class CircleAR {
+    private static Point center;
+
+    public static void main(String[] args){
+        Map<Integer, Circle> circles = CircleUtils.getCircles(6);
+        Circle maxAreaCircle = CircleUtils.getCirceWithMaxArea(
+                new ArrayList<>(circles.values())
+        );
+        System.out.println("bte.Circle with the biggest area: "
+                + maxAreaCircle.getArea() + " with radius: "
+                + maxAreaCircle.getRadius());
         Circle[] cir = getCLength(30);
         Circle minCirLength = getCircleWithMinLength(cir);
         System.out.println("Circle with the min length: "
@@ -21,7 +27,7 @@ public class CircleAR {
     public static Circle[] getCLength(int count){
         Circle[] result = new Circle[count];
         for (int i = 0; i < count; i++){
-            result[i] = new Circle(NumberUtils.getRandom(2, 600));
+            result[i] = new Circle(NumberUtils.getRandom(2, 600), center);
         }
         return result;
     }

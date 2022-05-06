@@ -1,5 +1,7 @@
 package bte.model;
 
+import bte.annotation.BtaNumber;
+
 import java.util.Scanner;
 
 public class Car {
@@ -7,8 +9,9 @@ public class Car {
     private static final int MAX_WEIGHT = 2500;
     private static final int MIN_PRICE = 10000;
     private static final int MAX_PRICE = 100000;
-
+    @BtaNumber(min = MIN_PRICE, max = MAX_PRICE)
     private int price;
+    @BtaNumber(min = MIN_WEIGHT, max = MAX_WEIGHT)
     private int weight;
     private Color color;
 

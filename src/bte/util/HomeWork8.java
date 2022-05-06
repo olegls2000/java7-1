@@ -18,7 +18,7 @@ public class HomeWork8 {
         SimpleRectangle rectangle2 = new SimpleRectangle(3, 1);
 
         WithPerimeter[] perimeters = {triangle1, triangle2, circle1, circle2, rectangle1, rectangle2};
-        WithArea[] areas = {triangle1, triangle2, circle1, circle2, rectangle1, rectangle2};
+        WithArea[] areas = {(WithArea) triangle1, (WithArea) triangle2, circle1, circle2, rectangle1, rectangle2};
         ContainerPerimeter containerP = new ContainerPerimeter(perimeters);
         ContainerArea containerA = new ContainerArea(areas);
         containerA.printShapeWithMaxArea();

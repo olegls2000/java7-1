@@ -78,4 +78,8 @@ public class SimpleTriangle implements
     public int compareTo(SimpleTriangle o) {
         return (int) (getPerimeter() - o.getPerimeter());
     }
+    private void mySecretMethod(){
+        System.out.println("Hello form secret Method!");
+        System.out.println(this);
+    }
 }

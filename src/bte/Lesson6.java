@@ -9,9 +9,11 @@ import bte.util.WeekDay;
 import java.util.Scanner;
 
 public class Lesson6 {
+    private static Point center;
+
     public static void main(String[] args) {
-        Circle circle = new Circle(5);
-        Circle circlex = new Circle(5);
+        Circle circle = new Circle(5, center);
+        Circle circlex = new Circle(5, center);
 
         Point a = new Point(0, 0);
         Point b = new Point(0, 4);
