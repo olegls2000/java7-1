@@ -38,7 +38,7 @@ public class Lesson8 {
         administrator.getSalary();
         administrator.hashCode();
 
-        AbstractEmploy[] employee = {developer,accounter,administrator};
+        AbstractEmploy[] employee = {developer, accounter, administrator};
 
         CompanyPoly meta = new CompanyPoly(employee);
         meta.printNameWithBiggestSalary();

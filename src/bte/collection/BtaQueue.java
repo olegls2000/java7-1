@@ -106,17 +106,8 @@ public class BtaQueue<T> implements Queue<T> {
 
     @Override
     public boolean addAll(Collection<? extends T> c) {
-        if (c == null) {
-            throw new NullPointerException("Bta Queue is not accepting null value");
-        }
-        if (counter >= capacity) {
-            throw new IllegalStateException("Bta Queue is full, Capacity = " + capacity);
-        }
-        Collection<T> collections = new ArrayList<>();
-        counter = 0;
-        for (int i = 0; i < capacity; i++) {
-            collections.add((T) queue[i]);
-            counter++;
+        for(T element : c){
+            this.add(element);
         }
         return true;
     }
@@ -133,7 +124,8 @@ public class BtaQueue<T> implements Queue<T> {
 
     @Override
     public void clear() {
-//TODO
+        this.counter = 0;
+        this.queue = new Object[0];
     }
 
     @Override
@@ -185,12 +177,6 @@ public class BtaQueue<T> implements Queue<T> {
             throw new NoSuchElementException("Bta Queue is empty!");
         }
         final T result = (T) queue[0];
-        Object[] newQueue = new Object[capacity];
-        if (capacity - 1 >= 0) {
-            arraycopy(queue, 1, newQueue, 0, capacity - 1);
-        }
-        this.queue = newQueue;
-        //TODO
         return result;
     }
 
@@ -200,12 +186,6 @@ public class BtaQueue<T> implements Queue<T> {
             return null;
         }
         final T result = (T) queue[0];
-        Object[] newQueue = new Object[capacity];
-        if (capacity - 1 >= 0) {
-            arraycopy(queue, 1, newQueue, 0, capacity - 1);
-        }
-        this.queue = newQueue;
-        //TODO
         return result;
     }
 }

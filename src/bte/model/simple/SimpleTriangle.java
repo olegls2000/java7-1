@@ -87,4 +87,9 @@ public class SimpleTriangle implements WithArea, WithPerimeter, Comparable<Simpl
     public int compareTo(SimpleTriangle o) {
         return (int) (getPerimeter() - o.getPerimeter());
     }
+
+    private void mySecretMethod(){
+        System.out.println("Hello from secret method");
+        System.out.println(this);
+    }
 }

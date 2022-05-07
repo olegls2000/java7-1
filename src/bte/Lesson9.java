@@ -1,4 +1,4 @@
-package bte.model;
+package bte;
 
 import bte.model.simple.SimpleCircle;
 import bte.model.simple.SimpleRectangle;
@@ -52,8 +52,8 @@ public class Lesson9 {
         System.out.println(strBuffer);
 
         String sentence = "Hello from Java course! Aha, aha";
-      //  String[] words = sentence.split(" ");
-     //   System.out.println("words count: " + words.length);
+        //  String[] words = sentence.split(" ");
+        //   System.out.println("words count: " + words.length);
         //Scanner scanner = new Scanner(System.in);
         //  System.out.println("Input tour sentence to parse ...");
         //    String sentenceFromConsole = scanner.nextLine();

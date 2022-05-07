@@ -1,7 +1,10 @@
 package bte.model;
 
+import bte.anatation.BtaString;
+
 public abstract class AbstractEmploy {
     private int age;
+    @BtaString(startWith = "A")
     private String name;
     private int salary;
 

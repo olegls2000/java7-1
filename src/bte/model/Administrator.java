@@ -1,12 +1,17 @@
 package bte.model;
 
+import bte.anatation.BtaString;
+
 public class Administrator extends AbstractEmploy {
 
-    private String department;
+    private final String department;
+    @BtaString(startWith = "A")
+    private final String name;
 
     public Administrator(int age, String name, int salary, String department) {
         super(age, name, salary);
         this.department = department;
+        this.name = name;
     }
 
     public String getDepartment() {

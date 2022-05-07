@@ -1,12 +1,32 @@
 package bte.model;
 
+import bte.anatation.BtaNumber;
+
+import static bte.utils.NumberUtils.getRandom;
+
 public class Point {
-    public int x;
-    public int y;
+    @BtaNumber(min = 0, max = 100)
+    private int x;
+    @BtaNumber(min = 0, max = 100)
+    private int y;
+    private boolean bool;
+
+    public void setBool(boolean bool) {
+        this.bool = bool;
+    }
+
+    public boolean isBool() {
+        return bool;
+    }
 
     public Point(int x, int y) {
         this.x = x;
         this.y = y;
+    }
+
+    public Point(){
+        this.x = getRandom(0,10);
+        this.y = getRandom(0,10);
     }
 
     public int getX() {

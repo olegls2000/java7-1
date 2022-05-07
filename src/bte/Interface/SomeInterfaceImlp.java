@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 
 public class SomeInterfaceImlp {
 
-    private Result result;
+    private final Result result;
 
     public SomeInterfaceImlp(Result result) {
         this.result = result;
