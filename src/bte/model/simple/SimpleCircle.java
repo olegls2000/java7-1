@@ -13,8 +13,8 @@ public class SimpleCircle implements WithArea, WithPerimeter {
         this.radius = radius;
     }
 
-    public SimpleCircle(){
-        this.radius=getRandom(40,200);
+    public SimpleCircle() {
+        this.radius = getRandom(40, 200);
     }
 
     @Override

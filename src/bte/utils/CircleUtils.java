@@ -5,7 +5,9 @@ import bte.model.Point;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static bte.utils.NumberUtils.getRandom;
 import static bte.utils.PointUtils.getDistance;
@@ -59,5 +61,17 @@ public class CircleUtils {
             result.put(radius, circle);
         }
         return result;
+    }
+
+    private static Circle getCircle() {
+        final int radius = getRandom(3, 70);
+        Point point = new Point(getRandom(0, 10), getRandom(0, 10));
+        return new Circle(radius, point);
+    }
+
+    public static Map<Integer, Circle> getCircleMapStreamBased(int count) {
+        return Stream.generate(CircleUtils::getCircle)
+                .limit(count)
+                .collect(Collectors.toMap(c -> c.getRadius(), Function.identity()));
     }
 }

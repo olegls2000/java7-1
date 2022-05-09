@@ -21,6 +21,10 @@ public class BtaStringProcessor {
             if (field.isAnnotationPresent(BtaString.class)) {
                 final BtaString annotation = field.getAnnotation(BtaString.class);
                 final String startWith = annotation.startWith();
+                final Class<?> fieldType =  field.getType();
+                if(fieldType != String.class){
+                    continue;
+                }
                 try {
                     field.setAccessible(true);
                     Object rawValue = field.get(o);
