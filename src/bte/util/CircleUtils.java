@@ -8,6 +8,9 @@ import java.util.*;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static bte.util.NumberUtils.getRandom;
 
@@ -31,12 +34,22 @@ public class CircleUtils {
     public static Map<Integer, Circle> getCircles(int count) {
         Map<Integer, Circle> result = new HashMap<>();
         for (int i = 0; i < count; i++) {
-            final Point center = new Point(getRandom(-100, 100), getRandom(-100, 100));
-            final int radius = getRandom(3, 70);
-            final Circle circle = new Circle(radius, center);
-            result.put(radius, circle);
+            final Circle circle = getCircle();
+            result.put(circle.getRadius(), circle);
         }
         return result;
+    }
+
+    private static Circle getCircle() {
+        final Point center = new Point(getRandom(-100, 100), getRandom(-100, 100));
+        final int radius = getRandom(3, 70);
+        return new Circle(radius, center);
+    }
+
+    public static Map<Integer, Circle> getCirclesStreamBased(int count) {
+        return Stream.generate(CircleUtils::getCircle)
+                .limit(count)
+                .collect(Collectors.toMap(c -> c.getRadius(), Function.identity()));
     }
 
     public static Circle getCirceWithMaxArea(List<Circle> circles) {

@@ -84,4 +84,7 @@ public class SimpleTriangle implements
         System.out.println(this);
     }
 
+    public int getB() {
+        return b;
+    }
 }
