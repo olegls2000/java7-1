@@ -27,8 +27,8 @@ public class Lesson6 {
         final int ARRAY_INDEX = 5;
 
         final Point POINT = new Point(4, 4);
-        POINT.x = 9;
-        POINT.y = 9;
+//        POINT.x = 9;
+//        POINT.y = 9;
         //POINT = new Point(7,7);
         int arrayIndex = 5;
         mutaterPrimitive(arrayIndex);

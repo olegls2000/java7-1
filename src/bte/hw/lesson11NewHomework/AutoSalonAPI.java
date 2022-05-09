@@ -1,4 +1,4 @@
-package bte.lesson11NewHomework;
+package bte.hw.lesson11NewHomework;
 
 public interface AutoSalonAPI {
     <T extends AbstractCar>int buyCar(T auto);

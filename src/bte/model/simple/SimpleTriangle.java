@@ -1,5 +1,7 @@
 package bte.model.simple;
 
+import static bte.util.Print.print;
+
 public class SimpleTriangle implements WithPerimeter {
     private int a;
     private int b;
@@ -72,5 +74,10 @@ public class SimpleTriangle implements WithPerimeter {
         result = 31 * result + b;
         result = 31 * result + c;
         return result;
+    }
+
+    private void mySecretMethod(){
+        print("Hello from secret method");
+        print(this);
     }
 }

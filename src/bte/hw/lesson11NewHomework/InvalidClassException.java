@@ -1,4 +1,4 @@
-package bte.lesson11NewHomework;
+package bte.hw.lesson11NewHomework;
 
 public class InvalidClassException{
 }

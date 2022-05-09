@@ -1,4 +1,4 @@
-package bte.lesson11HomeWork;
+package bte.hw.lesson11HomeWork;
 
 //“Honda”, “Mercedes”, “BMW”, “Toyota”.
 public enum CarModels {

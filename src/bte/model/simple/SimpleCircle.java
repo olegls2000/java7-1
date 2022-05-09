@@ -43,4 +43,8 @@ public class SimpleCircle implements WithPerimeter, WithArea {
     public int hashCode() {
         return radius;
     }
+
+    public int getRadius() {
+        return radius;
+    }
 }

@@ -26,8 +26,8 @@ public class Circle {
         this.center = newCenter;
     }
     public void move(int xDelta,int yDelta){
-        this.center.x = this.center.x + xDelta;
-        this.center.y = this.center.y + yDelta;
+//        this.center.x = this.center.x + xDelta;
+//        this.center.y = this.center.y + yDelta;
     }
 
 //    {

@@ -1,5 +1,6 @@
 package bte.model;
 
+import bte.annotation.BtaNumber;
 import bte.util.Color;
 
 import java.util.Scanner;
@@ -8,11 +9,18 @@ import static bte.util.Print.print;
 
 public class Car {
     private static final int MIN_WEINGHT = 1200;
-    private static final int MAX_WEINGHT = 2500;
+    private static final int MAX_WEIGHT = 2500;
     private static final int MIN_PRICE = 10000;
     private static final int MAX_PRICE = 100000;
+
+
+    @BtaNumber(min = MIN_PRICE, max = MAX_PRICE)
     private int price;
+
+    @BtaNumber(min = MIN_WEINGHT, max = MAX_WEIGHT)
     private int weight;
+
+
     private Color color;
 
     public Car() {
@@ -24,7 +32,7 @@ public class Car {
         this(22_000, 1_400, getColorFromConsole());
     }
 
-    private static Color getColorFromConsole(){
+    private static Color getColorFromConsole() {
         final var scanner = new Scanner(System.in);
         print("Please input the color (RED, WHITE, BLACK): ...");
         final var colorFromConsole = scanner.nextLine();
@@ -67,9 +75,9 @@ public class Car {
     }
 
     private void checkWeight(int weightToValidate) {
-        if (weightToValidate > MAX_WEINGHT || weightToValidate < MIN_WEINGHT) {
+        if (weightToValidate > MAX_WEIGHT || weightToValidate < MIN_WEINGHT) {
             print("Weight is invalid, must be bigger than: " + MIN_WEINGHT + " and less than: "
-                    + MAX_WEINGHT);
+                    + MAX_WEIGHT);
             throw new RuntimeException("Invalid weight");
         }
     }

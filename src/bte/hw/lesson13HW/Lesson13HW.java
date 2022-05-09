@@ -1,7 +1,6 @@
-package bte.lesson13HW;
+package bte.hw.lesson13HW;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import static bte.util.Print.print;
@@ -69,12 +68,12 @@ public class Lesson13HW {
 
 
         //6  * Write a Java program of swap two elements in an array list.
-        List<Integer> intList6 = new ArrayList<Integer>();
-        intList6.add(0,5);
-        intList6.add(1,6);
-        intList6.add(3,2);
-        Collections.swap(intList6, 2,5);
-        print("\n" + intList6);
+//        List<Integer> intList6 = new ArrayList<Integer>();
+//        intList6.add(2);
+//        intList6.add(5);
+//        intList6.add(3);
+//        Collections.swap(intList6, 2,5);
+//        print("\n 7: " + intList6);
 
 
         //7  * Write a Java program to join two array lists

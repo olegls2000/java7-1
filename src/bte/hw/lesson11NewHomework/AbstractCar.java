@@ -1,4 +1,4 @@
-package bte.lesson11NewHomework;
+package bte.hw.lesson11NewHomework;
 
 public class AbstractCar {
     private static final int MIN_CARRYING_WEIGHT = 200;

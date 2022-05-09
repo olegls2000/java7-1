@@ -1,4 +1,4 @@
-package bte.lesson11HomeWork;
+package bte.hw.lesson11HomeWork;
 
 /** TZ =>
  * Создайте приложение в виде API по управлению автосалоном подержанных автомобилей
