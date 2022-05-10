@@ -12,7 +12,7 @@ public class Lesson7 {
         triangle.setA(2);
         triangle.setB(2);
         triangle.setC(2);
-        System.out.println("Perimetr:" + triangle.calculatePerimeter());
+        System.out.println("Perimeter:" + triangle.calculatePerimeter());
     }
     final AutoSalon autoSalon = new AutoSalon();
     Car car = new Car();

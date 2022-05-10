@@ -1,5 +1,7 @@
 package bte.model.simple;
 
+import bte.model.simple.WithPerimeter;
+
 public class SimpleTriangle implements
         WithPerimeter, Comparable<SimpleTriangle> {
     private int a;
@@ -78,8 +80,13 @@ public class SimpleTriangle implements
     public int compareTo(SimpleTriangle o) {
         return (int) (getPerimeter() - o.getPerimeter());
     }
-    private void mySecretMethod(){
-        System.out.println("Hello form secret Method!");
+
+    private void mySecretMethod() {
+        System.out.println("Hello from secret Method!!!");
         System.out.println(this);
+    }
+
+    public int getB() {
+        return b;
     }
 }
