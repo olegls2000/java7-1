@@ -1,7 +1,9 @@
 package bte.model;
 
-public abstract class AbstractEmployee {
+import bte.annotation.BtaString;
 
+public abstract class AbstractEmployee {
+    @BtaString(startWith = "A")
     protected String name;
     protected int age;
     protected int salary;

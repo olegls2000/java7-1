@@ -93,4 +93,8 @@ public class SimpleTriangle  extends AbstractShape implements Comparable<SimpleT
                 ", c=" + c +
                 '}';
     }
+    private void mySecretMethod() {
+        System.out.println("Hello from my secret method!");
+        System.out.println(this);
+    }
 }

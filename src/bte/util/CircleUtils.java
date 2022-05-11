@@ -3,14 +3,21 @@ package bte.util;
 import bte.model.Circle;
 import bte.model.Point;
 
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import static bte.util.NumberUtils.getRandomValue;
 import static bte.util.PointUtils.getDistance;
 
 public class CircleUtils {
     public static Circle[] getCircles(int count, int from, int to) {
         Circle[] circles = new Circle[count];
         for (int i = 0; i < circles.length; i++) {
-            Point center=new Point(NumberUtils.getRandomValue(1, 20),NumberUtils.getRandomValue(1, 20));
-            circles[i] = new Circle(NumberUtils.getRandomValue(from, to),center);
+            Point center=new Point(getRandomValue(1, 20), getRandomValue(1, 20));
+            circles[i] = new Circle(getRandomValue(from, to),center);
         }
         return circles;
     }
@@ -38,12 +45,35 @@ public class CircleUtils {
     public static Circle[] getCircles(int count) {
         Circle[] circles = new Circle[count];
         for (int i = 0; i < circles.length; i++) {
-            circles[i] = new Circle(NumberUtils.getRandomValue(40, 80));
+            circles[i] = new Circle(getRandomValue(40, 80));
         }
         return circles;
     }
 
-    public static Circle getCircleWithMaxArea(Circle[] circles) {
+    public static Map<Integer, Circle> getCircles2(int count) {
+
+        final Map<Integer, Circle> result = new ConcurrentHashMap<Integer, Circle>();
+        for (int i = 0; i < count; i++) {
+
+            final Circle circle = getCircle();
+            result.put(circle.getRadius(), circle);
+        }
+        return result;
+    }
+
+    private static Circle getCircle() {
+        final var center = new Point(getRandomValue(-100, 100),
+                getRandomValue(-100, 100));
+        final var radius = getRandomValue(3, 70);
+       return new Circle(radius, center);
+    }
+    public static Map<Integer, Circle> getCirclesStreamBased(int count) {
+       return  Stream.generate(CircleUtils::getCircle)
+                .limit(count)
+                .collect(Collectors.toMap(c->c.getRadius(), Function.identity()));
+    }
+
+        public static Circle getCircleWithMaxArea(Circle[] circles) {
         Circle crlMax = circles[0];
         for (Circle c : circles) {
             if (c.getArea() > crlMax.getArea()) {
