@@ -40,7 +40,7 @@ public class CircleUtils {
         return result;
     }
 
-    private static Circle getCircle() {
+    public static Circle getCircle() {
         final Point center = new Point(getRandom(-100, 100), getRandom(-100, 100));
         final int radius = getRandom(3, 70);
         return new Circle(radius, center);

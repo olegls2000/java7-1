@@ -46,6 +46,9 @@ public class Circle {
         return PI * pow(radius, 2);
     }
 
+    public double getLength() {
+        return 2* PI * radius;
+    }
     static {
         out.println("Static initialisation block");
     }
