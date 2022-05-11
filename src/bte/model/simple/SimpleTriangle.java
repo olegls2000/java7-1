@@ -76,6 +76,10 @@ public class SimpleTriangle implements WithPerimeter {
         return result;
     }
 
+    public int getB() {
+        return b;
+    }
+
     private void mySecretMethod(){
         print("Hello from secret method");
         print(this);

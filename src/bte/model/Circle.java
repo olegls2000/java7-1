@@ -42,6 +42,9 @@ public class Circle {
 
     public double getArea() {
         return PI * pow(radius, 2);
+    }
+    public double getLength() {
+        return 2*PI * radius;
 
     }
 

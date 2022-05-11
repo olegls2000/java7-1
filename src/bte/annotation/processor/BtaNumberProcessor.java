@@ -3,7 +3,6 @@ package bte.annotation.processor;
 import bte.annotation.BtaNumber;
 
 import java.lang.reflect.Field;
-import java.util.Scanner;
 
 import static bte.util.Print.print;
 
@@ -15,8 +14,8 @@ public class BtaNumberProcessor {
         final Field[] declaredFields = clazz.getDeclaredFields();
         for (Field field :
                 declaredFields) {
-            if (field.isAnnotationPresent(BtaNumber.class)) {
-                final BtaNumber annotation = field.getAnnotation(BtaNumber.class);
+            if (field.isAnnotationPresent(BtaNumber.class)) {//Присутствует ли над филдом.
+                final BtaNumber annotation = field.getAnnotation(BtaNumber.class);// Получаем ссылку на аннотацию
                 final int max = annotation.max();
                 final int min = annotation.min();
                 try {
@@ -40,21 +39,21 @@ public class BtaNumberProcessor {
 
     public void process2(Object obj){
         final Class<?> clazz2 = obj.getClass();
-        final Field[] declaratedFields2 = clazz2.getDeclaredFields();
+        final Field[] declaratedFields2 = clazz2.getDeclaredFields();// Получение полей...Задекларированные в классе поля.
         for (Field field:
              declaratedFields2) {
-            if(field.isAnnotationPresent(BtaString.class)){
-                final BtaString annotation = field.getAnnotation(BtaString.class);
-                Scanner scan = new Scanner(System.in);
-                String str = scan.nextLine();
-                String startStr = scan.nextLine();
+            if(field.isAnnotationPresent(BtaString.class)){//Присутствует ли над филдом.
+                final BtaString annotation = field.getAnnotation(BtaString.class);// Получаем ссылку на аннотацию
+                final String startWith = annotation.startWith();
+                final Class<?> fieldType = field.getType();//спросить тип
+                if(fieldType != String.class){//Если = Стринг - то работа продолжится...Если не стринг, то пропустит
+                    continue;
+                }
                 try{
-                    final Object rawValue = field.get(obj);
-                    String value = (String) (rawValue);
-                    if(str.startsWith(startStr)){
-                        print(str);
-                    }else {
-                        print("Must be started from: " + startStr);
+                    final Object rawValue = field.get(obj);//Нельзя взять у филда вэль....по этому передаём Обджект
+                    String value = (String) (rawValue);// Получили вэлью
+                    if(!value.startsWith(startWith)){
+                        print("Must be started from: " + startWith);
                     }
 
                 } catch (IllegalAccessException e) {

@@ -1,11 +1,9 @@
 package bte;
 
 import bte.annotation.processor.BtaNumberProcessor;
-import bte.model.Car;
 import bte.model.Point;
 import bte.model.simple.SimpleCircle;
 import bte.model.simple.SimpleTriangle;
-import bte.util.Color;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
@@ -55,9 +53,12 @@ public class Lesson15 {
         callSecretMethod(simpleTriangle2);
 
 
-        BtaNumberProcessor btaNumberProcessor = new BtaNumberProcessor();
-        Car carToProcess = new Car(30_000,2_000, Color.BLACK );
-        btaNumberProcessor.process(carToProcess);
+//        BtaNumberProcessor btaNumberProcessor = new BtaNumberProcessor();
+//        Car carToProcess = new Car(30_000,2_000, Color.BLACK );
+//        btaNumberProcessor.process(carToProcess);
+        BtaNumberProcessor btaNumberProcessor1 = new BtaNumberProcessor();
+        btaNumberProcessor1.process2("ffffff");
+
     }
 
     private static void callSecretMethod(Object object) throws Exception {
